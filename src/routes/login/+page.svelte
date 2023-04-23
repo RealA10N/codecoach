@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import LabeledInput from '$lib/components/LabeledInput.svelte';
 	import type { ActionData } from './$types';
 
 	export let form: ActionData;
@@ -9,11 +10,8 @@
 	<form method="post" class="max-w-sm" use:enhance>
 		<h1 class="text-center mb-6">Welcome back! 👋</h1>
 
-		<label for="email">Email</label>
-		<input type="email" name="email" id="email" required />
-
-		<label for="password">Password</label>
-		<input type="password" name="password" id="password" required />
+		<LabeledInput type="email" name="email">Email</LabeledInput>
+		<LabeledInput type="password" name="password">Password</LabeledInput>
 
 		{#if form?.error}
 			<p class="text-center text-red-400 dark:text-red-700 mt-4">
