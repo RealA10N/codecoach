@@ -8,7 +8,7 @@
 	}
 
 	body {
-		@apply dark:bg-neutral-900 dark:text-neutral-200;
+		@apply bg-neutral-100 text-neutral-500 dark:bg-neutral-900 dark:text-neutral-400;
 		font-family: 'Inter', sans-serif;
 	}
 
@@ -18,7 +18,7 @@
 	h4,
 	h5,
 	h6 {
-		@apply font-bold mt-4 mb-2;
+		@apply font-bold mt-4 mb-2 text-neutral-800 dark:text-neutral-50;
 	}
 
 	h1 {
@@ -31,5 +31,9 @@
 
 	h3 {
 		@apply text-xl;
+	}
+
+	a {
+		@apply decoration-red-400 underline hover:decoration-2;
 	}
 }
