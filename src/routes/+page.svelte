@@ -2,6 +2,7 @@
 	import ProblemGroup from '$lib/components/ProblemGroup.svelte';
 	import type Problem from '$lib/models/Problem';
 	import AuthHeader from '$src/lib/components/AuthHeader.svelte';
+	import type { PageServerData } from './$types';
 	let problems = [
 		{
 			title: 'Missing Number',
@@ -24,9 +25,11 @@
 			url: 'https://codeforces.com/contest/1811/problem/A'
 		}
 	] satisfies Problem[];
+
+	export let data: PageServerData;
 </script>
 
-<AuthHeader />
+<AuthHeader user={data.user} />
 
 <ProblemGroup title="Introduction" subtitle="Week 1" {problems}>
 	Welcome to Competitive Programming! 🎉 In this first training session, you
