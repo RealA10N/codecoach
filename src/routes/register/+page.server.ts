@@ -2,8 +2,8 @@ import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 
 import isemail from 'isemail';
-import { checkIfEmailRegistered, hashPassword, registerNewUser } from '$lib/services/db';
-import { setLoggedInUser } from '$lib/services/tokens';
+import { checkIfEmailRegistered, hashPassword, registerNewUser } from '$src/lib/services/db.server';
+import { setLoggedInUser } from '$src/lib/services/tokens.server';
 import type { InternalUser } from '$lib/models/user';
 
 

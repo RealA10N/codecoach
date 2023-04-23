@@ -1,4 +1,4 @@
-import { deleteToken } from '$src/lib/services/tokens';
+import { deleteToken } from '$src/lib/services/tokens.server';
 import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 

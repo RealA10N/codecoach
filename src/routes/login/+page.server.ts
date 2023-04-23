@@ -2,8 +2,8 @@ import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 
 import isemail from 'isemail';
-import { tryToLogin } from '$lib/services/db';
-import { setLoggedInUser } from '$lib/services/tokens';
+import { tryToLogin } from '$src/lib/services/db.server';
+import { setLoggedInUser } from '$src/lib/services/tokens.server';
 
 export const actions = {
     default: async ({ cookies, request }) => {

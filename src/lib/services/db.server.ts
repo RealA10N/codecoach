@@ -1,20 +1,24 @@
 import bcrypt from "bcrypt";
 import type { InternalUser, User } from "$lib/models/user";
-import { CosmosClient } from "@azure/cosmos";
+import { Container, CosmosClient } from "@azure/cosmos";
 import { env } from "$env/dynamic/private";
+import { building } from "$app/environment";
 
+export async function initUsersClient() {
+    const client = new CosmosClient({endpoint: env.COSMOS_ENDPOINT, key: env.COSMOS_KEY});
+    const { database } = await client.databases.createIfNotExists({ id: 'codecoach' });
+    const { container } = await database.containers.createIfNotExists({
+        id: 'users',
+        partitionKey: '/id'
+    });
+    return container;
+}
 
-const client = new CosmosClient({endpoint: env.COSMOS_ENDPOINT, key: env.COSMOS_KEY});
-const { database } = await client.databases.createIfNotExists({ id: 'codecoach' });
-const { container } = await database.containers.createIfNotExists({
-    id: 'users',
-    partitionKey: '/id'
-});
+const container = building? undefined : await initUsersClient();
 
 export async function getDatabaseUser(email: string) : Promise<InternalUser | null> {
-    const item = container.item(email, email);
-    const { resource } = await item.read<InternalUser>();
-    return resource ?? null;
+    const item = container?.item(email, email);
+    return (await item?.read<InternalUser>())?.resource ?? null;
 }
 
 export async function hashPassword(password: string) {
@@ -26,7 +30,7 @@ export async function checkIfEmailRegistered(email: string) {
 }
 
 export async function registerNewUser(user: InternalUser) {
-    const { resource } = await container.items.create(user);
+    await container?.items?.create(user);
 }
 
 export async function tryToLogin(email: string, password: string) : Promise<User | null> {
