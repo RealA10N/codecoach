@@ -1,10 +1,10 @@
 import bcrypt from "bcrypt";
 import type { InternalUser, User } from "$lib/models/user";
 import { CosmosClient } from "@azure/cosmos";
-import { COSMOS_ENDPOINT, COSMOS_KEY, SALTS } from "$env/static/private";
+import { env } from "$env/dynamic/private";
 
 
-const client = new CosmosClient({endpoint: COSMOS_ENDPOINT, key: COSMOS_KEY});
+const client = new CosmosClient({endpoint: env.COSMOS_ENDPOINT, key: env.COSMOS_KEY});
 const { database } = await client.databases.createIfNotExists({ id: 'codecoach' });
 const { container } = await database.containers.createIfNotExists({
     id: 'users',
@@ -18,7 +18,7 @@ export async function getDatabaseUser(email: string) : Promise<InternalUser | nu
 }
 
 export async function hashPassword(password: string) {
-    return await bcrypt.hash(password, parseInt(SALTS));
+    return await bcrypt.hash(password, parseInt(env.SALTS));
 }
 
 export async function checkIfEmailRegistered(email: string) {
