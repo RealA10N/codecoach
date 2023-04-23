@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let title: string;
-	export let subtitle: string;
+	export let subtitle: string | null = null;
 	export let url: string;
 	export let isAccepted: boolean = false;
 </script>
@@ -12,7 +12,9 @@
 	target="_blank"
 >
 	{title}
-	<span class="text-xs opacity-50">{subtitle}</span>
+	{#if subtitle}
+		<span class="text-xs opacity-50">{subtitle}</span>
+	{/if}
 </a>
 
 <style lang="postcss">
