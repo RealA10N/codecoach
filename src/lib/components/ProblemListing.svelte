@@ -6,14 +6,16 @@
 </script>
 
 <a
-	class="py-1 px-3 transition-colors w-full inline-block text-center
+	class="py-1 px-3 transition-colors w-full inline-block text-center no-underline
 		{isAccepted ? 'accepted' : 'not-applicable'}"
 	href={url}
 	target="_blank"
 >
 	{title}
 	{#if subtitle}
-		<span class="text-xs opacity-50">{subtitle}</span>
+		<span class="text-xs opacity-60 absolute invisible sm:visible sm:relative"
+			>{subtitle}</span
+		>
 	{/if}
 </a>
 
@@ -23,6 +25,6 @@
 	}
 
 	.not-applicable {
-		@apply bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700;
+		@apply bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700;
 	}
 </style>
