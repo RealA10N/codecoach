@@ -17,15 +17,15 @@ export const actions = {
         const codeforces = data.get('codeforces')?.toString() ?? '';
 
         // validate email
-        if (!email) return fail(400, {error: "Email not provided"})
+        if (!email) return fail(400, {message: "Email not provided"})
         if (!isemail.validate(email, {errorLevel: false}))
-        return fail(400, {error: "Invalid email address"});
+        return fail(400, {message: "Invalid email address"});
         
         // validate password
-        if (!password) return fail(400, {error: "Password not provided"})
+        if (!password) return fail(400, {message: "Password not provided"})
         
         if(await checkIfEmailRegistered(email))
-            return fail(400, {error: "Email already registered"})
+            return fail(400, {message: "Email already registered"})
         
         const user = {
             name,

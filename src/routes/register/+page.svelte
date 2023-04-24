@@ -25,9 +25,9 @@
 			></LabeledInput
 		>
 
-		{#if form?.error}
+		{#if form?.message}
 			<p class="text-center text-red-400 dark:text-red-700 mt-4">
-				{form.error}
+				{form.message}
 			</p>
 		{/if}
 

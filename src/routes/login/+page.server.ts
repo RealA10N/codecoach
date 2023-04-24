@@ -12,15 +12,15 @@ export const actions = {
         const password = data.get('password')?.toString() ?? '';
 
         // validate email
-        if (!email) return fail(400, {error: "Email not provided"})
+        if (!email) return fail(400, {message: "Email not provided"})
         if (!isemail.validate(email, {errorLevel: false}))
-        return fail(400, {error: "Invalid email address"});
+        return fail(400, {message: "Invalid email address"});
         
         // validate password
-        if (!password) return fail(400, {error: "Password not provided"})
+        if (!password) return fail(400, {message: "Password not provided"})
         
         const user = await tryToLogin(email, password);
-        if (!user) return fail(400, {error: "Incorrect email or password"});
+        if (!user) return fail(400, {message: "Incorrect email or password"});
         
         setLoggedInUser(user, cookies);
         throw redirect(303, '/');
