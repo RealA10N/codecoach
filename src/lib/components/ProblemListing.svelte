@@ -28,9 +28,7 @@
 			target="_blank"
 			class="absolute right-0 px-3"
 		>
-			<Tooltip text="View submission code">
-				<Fa icon={faCode} class="my-1 opacity-80" />
-			</Tooltip>
+			<Fa icon={faCode} class="my-1 opacity-80" />
 		</a>
 	{/if}
 </div>
