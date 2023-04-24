@@ -8,7 +8,7 @@ import type { InternalUser } from '$lib/models/user';
 
 
 export const actions = {
-    default: async ({ cookies, request }) => {
+    default: async ({ cookies, request, locals }) => {
         const data = await request.formData();
         const email = data.get('email')?.toString() ?? '';
         const password = data.get('password')?.toString() ?? '';
@@ -24,7 +24,7 @@ export const actions = {
         // validate password
         if (!password) return fail(400, {message: "Password not provided"})
         
-        if(await checkIfEmailRegistered(email))
+        if(await checkIfEmailRegistered(email, locals.users))
             return fail(400, {message: "Email already registered"})
         
         const user = {
@@ -36,7 +36,7 @@ export const actions = {
             codeforces,
         } satisfies InternalUser;
         
-        await registerNewUser(user);
+        await registerNewUser(user, locals.users);
         setLoggedInUser(user, cookies);
         throw redirect(303, '/');
     }

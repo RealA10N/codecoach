@@ -2,7 +2,6 @@ import bcrypt from "bcrypt";
 import type { InternalUser, User } from "$lib/models/user";
 import { Container, CosmosClient } from "@azure/cosmos";
 import { env } from "$env/dynamic/private";
-import { building } from "$app/environment";
 
 export async function initUsersClient() {
     const client = new CosmosClient({endpoint: env.COSMOS_ENDPOINT, key: env.COSMOS_KEY});
@@ -14,10 +13,8 @@ export async function initUsersClient() {
     return container;
 }
 
-const container = building? undefined : await initUsersClient();
-
-export async function getDatabaseUser(email: string) : Promise<InternalUser | null> {
-    const item = container?.item(email, email);
+export async function getDatabaseUser(email: string, users: Container) : Promise<InternalUser | null> {
+    const item = users.item(email, email);
     return (await item?.read<InternalUser>())?.resource ?? null;
 }
 
@@ -25,16 +22,16 @@ export async function hashPassword(password: string) {
     return await bcrypt.hash(password, parseInt(env.SALTS));
 }
 
-export async function checkIfEmailRegistered(email: string) {
-    return (await getDatabaseUser(email)) !== null;
+export async function checkIfEmailRegistered(email: string, users: Container) {
+    return (await getDatabaseUser(email, users)) !== null;
 }
 
-export async function registerNewUser(user: InternalUser) {
-    await container?.items?.create(user);
+export async function registerNewUser(user: InternalUser, users: Container) {
+    users.items?.create(user);
 }
 
-export async function tryToLogin(email: string, password: string) : Promise<User | null> {
-    const internalUser = await getDatabaseUser(email);
+export async function tryToLogin(email: string, password: string, users: Container) : Promise<User | null> {
+    const internalUser = await getDatabaseUser(email, users);
     return bcrypt.compare(password, internalUser?.passwordHash ?? '').then(
         (result) => {
             if (result && internalUser) {
