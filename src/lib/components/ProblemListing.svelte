@@ -1,23 +1,36 @@
 <script lang="ts">
+	import Fa from 'svelte-fa';
+	import { faCode } from '@fortawesome/free-solid-svg-icons';
+	import Tooltip from '$lib/components/Tooltip.svelte';
+
 	export let title: string;
 	export let subtitle: string | null = null;
 	export let url: string;
 	export let isAccepted: boolean = false;
 </script>
 
-<a
-	class="py-1 px-3 transition-colors w-full inline-block text-center no-underline
-		{isAccepted ? 'accepted' : 'not-applicable'}"
-	href={url}
-	target="_blank"
+<div
+	class="flex py-1 px-3 transition-colors {isAccepted
+		? 'accepted'
+		: 'not-applicable'}"
 >
-	{title}
-	{#if subtitle}
-		<span class="text-xs opacity-60 absolute invisible sm:visible sm:relative"
-			>{subtitle}</span
-		>
+	<a class="flex-1 text-center no-underline" href={url} target="_blank">
+		{title}
+		{#if subtitle}
+			<span class="text-xs opacity-70 absolute invisible sm:visible sm:relative"
+				>{subtitle}</span
+			>
+		{/if}
+	</a>
+
+	{#if isAccepted}
+		<a href="https://codeforces.com" target="_blank">
+			<Tooltip text="View submission code">
+				<Fa icon={faCode} class="my-1 opacity-80" />
+			</Tooltip>
+		</a>
 	{/if}
-</a>
+</div>
 
 <style lang="postcss">
 	.accepted {
