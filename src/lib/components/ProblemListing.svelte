@@ -10,9 +10,8 @@
 </script>
 
 <div
-	class="relative flex py-1 px-3 transition-colors {isAccepted
-		? 'accepted'
-		: 'not-applicable'}"
+	class="relative flex py-1 px-3 hover:z-10 hover:scale-[1.025] transition-all
+	{isAccepted ? 'accepted' : 'not-applicable'}"
 >
 	<a class="flex-1 text-center no-underline" href={url} target="_blank">
 		{title}
@@ -38,7 +37,7 @@
 
 <style lang="postcss">
 	.accepted {
-		@apply bg-green-200 hover:bg-green-300 dark:bg-green-900 dark:hover:bg-green-800;
+		@apply bg-green-300 hover:bg-green-400 dark:bg-green-900 dark:hover:bg-green-800;
 	}
 
 	.not-applicable {
