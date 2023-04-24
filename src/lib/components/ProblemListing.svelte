@@ -10,7 +10,7 @@
 </script>
 
 <div
-	class="flex py-1 px-3 transition-colors {isAccepted
+	class="relative flex py-1 px-3 transition-colors {isAccepted
 		? 'accepted'
 		: 'not-applicable'}"
 >
@@ -24,7 +24,11 @@
 	</a>
 
 	{#if isAccepted}
-		<a href="https://codeforces.com" target="_blank">
+		<a
+			href="https://codeforces.com"
+			target="_blank"
+			class="absolute right-0 px-3"
+		>
 			<Tooltip text="View submission code">
 				<Fa icon={faCode} class="my-1 opacity-80" />
 			</Tooltip>
