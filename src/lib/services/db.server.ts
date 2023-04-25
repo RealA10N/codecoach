@@ -1,44 +1,67 @@
 import bcrypt from "bcrypt";
-import type { InternalUser, User } from "$lib/models/user";
-import { Container, CosmosClient } from "@azure/cosmos";
+import type { CodeforcesHandle, CsesUserNumber, Email, PasswordHash, UserConfig, UserId, UserName, UserPassword } from "$lib/models/user";
+import { Container, CosmosClient, Database } from "@azure/cosmos";
 import { env } from "$env/dynamic/private";
+import { createHash } from "node:crypto";
 
-export async function initUsersClient() {
+type UserConfigContainer = Container;
+type UserPasswordContainer = Container;
+type UserSolutionsContainer = Container;
+
+export interface DatabaseContainers {
+    configs: UserConfigContainer,
+    passwords: UserPasswordContainer,
+    solutions: UserSolutionsContainer,
+}
+
+const getContainer = (async (db: Database, name: string) => (await db.containers.createIfNotExists({id: name, partitionKey: '/id'})).container)
+
+export async function initDatabase() : Promise<DatabaseContainers> {
     const client = new CosmosClient({endpoint: env.COSMOS_ENDPOINT, key: env.COSMOS_KEY});
-    const { database } = await client.databases.createIfNotExists({ id: 'codecoach' });
-    const { container } = await database.containers.createIfNotExists({
-        id: 'users',
-        partitionKey: '/id'
+    const db = (await client.databases.createIfNotExists({ id: 'users' })).database;
+    return {
+        configs: await getContainer(db, 'configs') satisfies UserConfigContainer,
+        passwords: await getContainer(db, 'passwords') satisfies UserPasswordContainer,
+        solutions: await getContainer(db, 'solutions') satisfies UserSolutionsContainer,
+    } satisfies DatabaseContainers;
+}
+
+const hashPassword = async (password: string) => await bcrypt.hash(password, parseInt(env.SALTS)) as PasswordHash;
+const emailToId = (email: Email) => createHash('sha256').update(email).digest('hex') as UserId;
+
+async function getUserItem(container: Container, id: UserId) {
+    const item = container.item(id, id);
+    return (await item?.read())?.resource ?? null;
+}
+
+const checkIfRegistered = async (db: DatabaseContainers, id: UserId) => Boolean(await getUserItem(db.configs, id));
+const updateUserConfig = async (db: DatabaseContainers, config: UserConfig) => await db.configs.items?.create(config);
+const updateUserPassword = async (db: DatabaseContainers, userPassword: UserPassword) => await db.passwords.items?.create(userPassword);
+
+export async function registerNewUser(db: DatabaseContainers, name: UserName, email: Email, codeforces: CodeforcesHandle, cses: CsesUserNumber, password: string) {
+    if (await checkIfRegistered(db, name)) throw Error('Email already registered');
+    const userId = emailToId(email);
+    const userConfig = {
+        id: userId,
+        name: name,
+        email: email,
+        codeforces: codeforces,
+        cses: cses,
+    };
+
+    updateUserConfig(db, userConfig);
+    updateUserPassword(db, {
+        id: userId,
+        passwordHash: await hashPassword(password),
     });
-    return container;
+
+    return userConfig;
 }
 
-export async function getDatabaseUser(email: string, users: Container) : Promise<InternalUser | null> {
-    const item = users.item(email, email);
-    return (await item?.read<InternalUser>())?.resource ?? null;
-}
-
-export async function hashPassword(password: string) {
-    return await bcrypt.hash(password, parseInt(env.SALTS));
-}
-
-export async function checkIfEmailRegistered(email: string, users: Container) {
-    return (await getDatabaseUser(email, users)) !== null;
-}
-
-export async function registerNewUser(user: InternalUser, users: Container) {
-    users.items?.create(user);
-}
-
-export async function tryToLogin(email: string, password: string, users: Container) : Promise<User | null> {
-    const internalUser = await getDatabaseUser(email, users);
-    return bcrypt.compare(password, internalUser?.passwordHash ?? '').then(
-        (result) => {
-            if (result && internalUser) {
-                const {passwordHash, id, ...user} = internalUser;
-                return user as User;
-            } 
-            return null;
-        }
-    );
+export async function tryToLogin(db: DatabaseContainers, email: Email, password: string) {
+    const userId = emailToId(email);
+    const userPassword = await getUserItem(db.passwords, userId) as UserPassword | null;
+    const passwordHash = userPassword?.passwordHash ?? '';
+    const result = await bcrypt.compare(password, passwordHash)
+    return result? await getUserItem(db.configs, userId) as UserConfig : null;
 }

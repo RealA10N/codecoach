@@ -2,9 +2,8 @@ import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 
 import isemail from 'isemail';
-import { checkIfEmailRegistered, hashPassword, registerNewUser } from '$src/lib/services/db.server';
+import { registerNewUser } from '$src/lib/services/db.server';
 import { setLoggedInUser } from '$src/lib/services/tokens.server';
-import type { InternalUser } from '$lib/models/user';
 
 
 export const actions = {
@@ -23,21 +22,16 @@ export const actions = {
         
         // validate password
         if (!password) return fail(400, {message: "Password not provided"})
-        
-        if(await checkIfEmailRegistered(email, locals.users))
-            return fail(400, {message: "Email already registered"})
-        
-        const user = {
-            name,
-            email,
-            id: email,
-            passwordHash: await hashPassword(password),
-            cses,
-            codeforces,
-        } satisfies InternalUser;
-        
-        await registerNewUser(user, locals.users);
-        setLoggedInUser(user, cookies);
+
+        try {
+            const userConfig = await registerNewUser(locals.db, name, email, codeforces, cses, password);
+            setLoggedInUser(userConfig, cookies);
+        } catch (error) {
+            console.error(error);
+            let message = 'Unknown Error';
+            if (error instanceof Error) message = error.message;
+            return fail(400, {message: message});
+        }
         throw redirect(303, '/');
     }
 } satisfies Actions;

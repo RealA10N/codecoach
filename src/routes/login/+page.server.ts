@@ -19,7 +19,7 @@ export const actions = {
         // validate password
         if (!password) return fail(400, {message: "Password not provided"})
         
-        const user = await tryToLogin(email, password, locals.users);
+        const user = await tryToLogin(locals.db, email, password);
         if (!user) return fail(400, {message: "Incorrect email or password"});
         
         setLoggedInUser(user, cookies);
