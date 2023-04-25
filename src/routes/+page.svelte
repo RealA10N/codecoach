@@ -1,41 +1,31 @@
 <script lang="ts">
 	import ProblemGroup from '$lib/components/ProblemGroup.svelte';
-	import type Problem from '$lib/models/Problem';
 	import AuthHeader from '$src/lib/components/AuthHeader.svelte';
 	import type { PageServerData } from './$types';
-	let problems = [
-		{
-			title: 'Missing Number',
-			subtitle: 'CSES Introductory Problems',
-			url: 'https://cses.fi/problemset/task/1083'
-		},
-		{
-			title: 'Increasing Array',
-			subtitle: 'CSES Introductory Problems',
-			url: 'https://cses.fi/problemset/task/1094'
-		},
-		{
-			title: 'Distinct Numbers',
-			subtitle: 'CSES Sorting and Searching',
-			url: 'https://cses.fi/problemset/task/1621'
-		},
-		{
-			title: 'Insert Digit',
-			subtitle: 'Codeforces Round 863 (Div. 3)',
-			url: 'https://codeforces.com/contest/1811/problem/A'
-		}
-	] satisfies Problem[];
+	import w1 from '$src/problems/week1.json';
 
 	export let data: PageServerData;
 </script>
 
 <AuthHeader user={data.user} />
 
-<ProblemGroup title="Introduction" subtitle="Week 1" {problems}>
+<ProblemGroup problemGroup={w1} solutions={data.solutions}>
+	Welcome to Competitive Programming! 🎉 In this first training session, you
+	will mainly get to know
+	<a href="https://codeforce.com" target="_blank">Codeforces</a>
+	and <a href="https://cses.fi/problemset" target="_blank">CSES</a>, two popular
+	online judges for competitive programming that we will be using this semester.
+	It is also highly encouraged to solve the problems using C++ and getting used
+	to it if you are not quite familiar with the language yet. Good luck, and have
+	fun! 😊
+</ProblemGroup>
+
+<!-- 
+<ProblemGroup title="Dynamic Programming" subtitle="Week 2" {problems}>
 	Welcome to Competitive Programming! 🎉 In this first training session, you
 	will mainly get to know
 	<a href="https://codeforce.com" target="_blank">Codeforces</a>
 	and <a href="https://cses.fi/problemset" target="_blank">CSES</a>, two popular
 	online judges for competitive programming, that we will be using this
 	semester. Are you ready to dive into your first challenge? 💻🚀
-</ProblemGroup>
+</ProblemGroup> -->

@@ -2,12 +2,12 @@
 	export let title: string;
 	export let subtitle: string | null = null;
 	export let url: string;
-	export let isAccepted: boolean = false;
+	export let isSolved: boolean = false;
 </script>
 
 <div
 	class="relative flex py-1 px-3 hover:z-10 hover:scale-[1.025] transition-all
-	{isAccepted ? 'accepted' : 'not-applicable'}"
+	{isSolved ? 'solved' : 'not-applicable'}"
 >
 	<a class="flex-1 text-center no-underline" href={url} target="_blank">
 		{title}
@@ -20,7 +20,7 @@
 </div>
 
 <style lang="postcss">
-	.accepted {
+	.solved {
 		@apply bg-green-300 hover:bg-green-400 dark:bg-green-900 dark:hover:bg-green-800;
 	}
 

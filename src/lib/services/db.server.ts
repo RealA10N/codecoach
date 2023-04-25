@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import type { CodeforcesHandle, CsesUserNumber, Email, PasswordHash, UserConfig, UserId, UserName, UserPassword } from "$lib/models/user";
+import type { CodeforcesHandle, CsesUserNumber, Email, PasswordHash, SolutionId, UserConfig, UserId, UserName, UserPassword } from "$lib/models/user";
 import { Container, CosmosClient, Database } from "@azure/cosmos";
 import { env } from "$env/dynamic/private";
 import { createHash } from "node:crypto";
@@ -64,4 +64,9 @@ export async function tryToLogin(db: DatabaseContainers, email: Email, password:
     const passwordHash = userPassword?.passwordHash ?? '';
     const result = await bcrypt.compare(password, passwordHash)
     return result? await getUserItem(db.configs, userId) as UserConfig : null;
+}
+
+export async function getSolutions(db: DatabaseContainers, id: UserId | null) : Promise<string[] | null> {
+    if (!id) return null;
+    return (await getUserItem(db.solutions, id))?.solutions ?? null;
 }

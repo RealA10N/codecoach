@@ -1,0 +1,43 @@
+{
+    "title": "Introduction",
+    "subtitle": "Week 1",
+    "publicProblems": [
+        {
+            "title": "Missing Number",
+            "subtitle": "CSES Introductory Problems",
+            "url": "https://cses.fi/problemset/task/1083"
+        },
+        {
+            "title": "Increasing Array",
+            "subtitle": "CSES Introductory Problems",
+            "url": "https://cses.fi/problemset/task/1094"
+        },
+        {
+            "title": "Distinct Numbers",
+            "subtitle": "CSES Sorting and Searching",
+            "url": "https://cses.fi/problemset/task/1621"
+        },
+        {
+            "title": "Insert Digit",
+            "subtitle": "Codeforces Round 863 (Div. 3)",
+            "url": "https://codeforces.com/contest/1811/problem/A"
+        }
+    ],
+    "extraProblems": [
+        {
+            "title": "Subarray Distinct Values",
+            "subtitle": "CSES Sorting and Searching",
+            "url": "https://cses.fi/problemset/task/2428"
+        },
+        {
+            "title": "Circle of Monsters",
+            "subtitle": "Educational Codeforces Round 85",
+            "url": "https://codeforces.com/problemset/problem/1334/C"
+        },
+        {
+            "title": "Sliding Median",
+            "subtitle": "CSES Sorting and Searching",
+            "url": "https://cses.fi/problemset/task/1076"
+        }
+    ]
+}
