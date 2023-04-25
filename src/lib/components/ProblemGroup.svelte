@@ -13,6 +13,8 @@
 	export let problemGroup: ProblemGroup;
 	export let solutions: SolutionId[] | null;
 
+	console.log(solutions);
+
 	function isSolved(problem: Problem) {
 		return solutions?.includes(problem.url) ?? false;
 	}
@@ -63,7 +65,7 @@
 			{:else if unsolvedPublicProblemsCount > 1}
 				Solve {unsolvedPublicProblemsCount} more problems to unlock additional ones!
 			{:else if unsolvedPublicProblemsCount === 1}
-				One more problem to unlock the additional ones!
+				Solve one more problem to unlock the additional ones!
 			{:else if unsolvedExtraProblemsCount === 0}
 				Good job! You have solved all available problems.
 			{:else}
