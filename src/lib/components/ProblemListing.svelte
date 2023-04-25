@@ -1,8 +1,4 @@
 <script lang="ts">
-	import Fa from 'svelte-fa';
-	import { faCode } from '@fortawesome/free-solid-svg-icons';
-	import Tooltip from '$lib/components/Tooltip.svelte';
-
 	export let title: string;
 	export let subtitle: string | null = null;
 	export let url: string;
@@ -21,16 +17,6 @@
 			>
 		{/if}
 	</a>
-
-	{#if isAccepted}
-		<a
-			href="https://codeforces.com"
-			target="_blank"
-			class="absolute right-0 px-3"
-		>
-			<Fa icon={faCode} class="my-1 opacity-80" />
-		</a>
-	{/if}
 </div>
 
 <style lang="postcss">
