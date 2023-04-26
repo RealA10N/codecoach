@@ -7,7 +7,7 @@
 
 <div
 	class="relative flex py-1 px-3 hover:z-10 hover:scale-[1.025] transition-all
-	{isSolved ? 'solved' : 'not-applicable'}"
+		select-none {isSolved ? 'solved' : 'not-applicable'}"
 >
 	<a class="flex-1 text-center no-underline" href={url} target="_blank">
 		{title}
