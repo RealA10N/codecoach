@@ -27,7 +27,6 @@ export const actions = {
             const userConfig = await registerNewUser(locals.db, name, email, codeforces, cses, password);
             setLoggedInUser(userConfig, cookies);
         } catch (error) {
-            console.error(error);
             let message = 'Unknown Error';
             if (error instanceof Error) message = error.message;
             return fail(400, {message: message});

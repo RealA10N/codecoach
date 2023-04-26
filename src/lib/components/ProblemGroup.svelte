@@ -13,8 +13,6 @@
 	export let problemGroup: ProblemGroup;
 	export let solutions: SolutionId[] | null;
 
-	console.log(solutions);
-
 	function isSolved(problem: Problem) {
 		return solutions?.includes(problem.url) ?? false;
 	}
