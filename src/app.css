@@ -12,6 +12,11 @@
 		font-family: 'Inter', sans-serif;
 	}
 
+	i {
+		font-family: 'Schoolbell', cursive;
+		font-weight: 500;
+	}
+
 	h1,
 	h2,
 	h3,
