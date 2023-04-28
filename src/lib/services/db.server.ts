@@ -47,7 +47,8 @@ export async function registerNewUser(db: DatabaseContainers, name: UserName, em
         email: email,
         codeforces: codeforces,
         cses: cses,
-    };
+        isAdmin: false,
+    } satisfies UserConfig;
 
     updateUserConfig(db, userConfig);
     updateUserPassword(db, {
@@ -69,4 +70,9 @@ export async function tryToLogin(db: DatabaseContainers, email: Email, password:
 export async function getSolutions(db: DatabaseContainers, id: UserId | null) : Promise<string[] | null> {
     if (!id) return null;
     return (await getUserItem(db.solutions, id))?.solutions ?? null;
+}
+
+export async function listAllUsers(db: DatabaseContainers) : Promise<UserConfig[]> {
+    const { resources } = await db.configs.items.readAll<UserConfig>().fetchAll();
+    return resources ?? [];
 }

@@ -17,6 +17,7 @@ export interface UserConfig {
     email: Email;
     codeforces: CodeforcesHandle;
     cses: CsesUserNumber;
+    isAdmin: boolean;
 }
 
 export interface UserSolutions {
