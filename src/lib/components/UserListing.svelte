@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { UserConfig } from '$lib/models/user';
 	import Tooltip from '$lib/components/Tooltip.svelte';
-	import Codeforces from '$lib/components/codeforces.svelte';
+	import Codeforces from '$lib/components/Codeforces.svelte';
 	import Cses from '$lib/components/Cses.svelte';
 
 	export let user: UserConfig;
