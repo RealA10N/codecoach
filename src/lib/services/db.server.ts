@@ -34,6 +34,7 @@ async function getUserItem(container: Container, id: UserId) {
     return (await item?.read())?.resource ?? null;
 }
 
+export const getUserConfig = async (db: DatabaseContainers, id: UserId) => await getUserItem(db.configs, id) as UserConfig | null;
 const checkIfRegistered = async (db: DatabaseContainers, id: UserId) => Boolean(await getUserItem(db.configs, id));
 const updateUserConfig = async (db: DatabaseContainers, config: UserConfig) => await db.configs.items?.create(config);
 const updateUserPassword = async (db: DatabaseContainers, userPassword: UserPassword) => await db.passwords.items?.create(userPassword);

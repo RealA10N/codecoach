@@ -1,19 +1,27 @@
 import jwt from "jsonwebtoken";
 import { env } from "$env/dynamic/private";
-import type { UserConfig } from "$lib/models/user";
+import type { UserConfig, UserId } from "$lib/models/user";
 import type { Cookies } from "@sveltejs/kit";
 const TOKEN = 'token';
-const EXPIRES_IN_SECONDS = 60 * 60 * 24 * 14;
+const TWO_WEEKS = 60 * 60 * 24 * 14;
+const ONE_HOUR = 60 * 60;
 
-export function signUser(user: UserConfig) : string {
-    return jwt.sign(user, env.JWT_SECRET, {expiresIn: 1000 * EXPIRES_IN_SECONDS})
+export function signUser(user: UserConfig, expire_seconds: number) : string {
+    return jwt.sign(user, env.JWT_SECRET, {expiresIn: 1000 * expire_seconds})
 }
 
 export const deleteToken = (cookies: Cookies) => cookies.delete(TOKEN);
 
 export function setLoggedInUser(user: UserConfig, cookies: Cookies) {
-    cookies.set(TOKEN, signUser(user), {
-        maxAge: EXPIRES_IN_SECONDS,
+    cookies.set(TOKEN, signUser(user, TWO_WEEKS), {
+        maxAge: TWO_WEEKS,
+        sameSite: 'strict',
+    })
+}
+
+export function adminLoginAsUser(user: UserConfig, cookies: Cookies) {
+    cookies.set(TOKEN, signUser(user, ONE_HOUR), {
+        maxAge: ONE_HOUR,
         sameSite: 'strict',
     })
 }

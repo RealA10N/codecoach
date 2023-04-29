@@ -3,8 +3,11 @@
 	import Tooltip from '$lib/components/Tooltip.svelte';
 	import Codeforces from '$lib/components/Codeforces.svelte';
 	import Cses from '$lib/components/Cses.svelte';
+	import Fa from 'svelte-fa';
+	import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 
 	export let user: UserConfig;
+	export let hasAdminPermissions: boolean;
 </script>
 
 <div
@@ -41,6 +44,18 @@
 				target="_blank"
 			>
 				<Cses />
+			</a>
+		</Tooltip>
+	{/if}
+
+	{#if hasAdminPermissions}
+		<Tooltip text="Login as {user.name}">
+			<a
+				href="/users?adminLogin={user.id}"
+				target="_parent"
+				class="inline-block align-middle ml-2"
+			>
+				<Fa icon={faRightToBracket} />
 			</a>
 		</Tooltip>
 	{/if}

@@ -7,5 +7,5 @@
 <h1>Users</h1>
 
 {#each data.users as user}
-	<UserListing {user} />
+	<UserListing {user} hasAdminPermissions={data.loggedInUser?.isAdmin} />
 {/each}
