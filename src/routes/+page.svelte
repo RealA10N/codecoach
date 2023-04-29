@@ -7,7 +7,7 @@
 	export let data: PageServerData;
 </script>
 
-<AuthHeader user={data.user} />
+<AuthHeader user={data.loggedInUser} />
 
 <ProblemGroup problemGroup={w1} solutions={data.solutions}>
 	Welcome to Competitive Programming! 🎉 In this first training session, you

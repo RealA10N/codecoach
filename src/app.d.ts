@@ -7,7 +7,7 @@ import type { DatabaseContainers } from "./lib/services/db.server";
 declare global {
 	namespace App {
 		interface Locals {
-			user: UserConfig | null,
+			loggedInUser: UserConfig | null,
 			db: DatabaseContainers,
 		}
 		// interface Error {}
