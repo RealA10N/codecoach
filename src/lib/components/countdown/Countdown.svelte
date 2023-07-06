@@ -35,7 +35,7 @@
 	</div>
 {:else}
 	<div
-		class="text-center p-4 font-medium bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700"
+		class="text-center p-4 bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700"
 		out:scale={{ duration: 400 }}
 	>
 		Unlocking problems in
