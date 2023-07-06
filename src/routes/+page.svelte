@@ -3,6 +3,7 @@
 	import AuthHeader from '$src/lib/components/AuthHeader.svelte';
 	import type { PageServerData } from './$types';
 	import w1 from '$src/problems/week1.json';
+	import Countdown from '$src/lib/components/countdown/Countdown.svelte';
 
 	export let data: PageServerData;
 </script>
