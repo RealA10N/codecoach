@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SvelteMarkdown from 'svelte-markdown';
 	import ProblemListing from '$lib/components/ProblemListing.svelte';
 	import type Problem from '$src/lib/models/problem';
 	import Fa from 'svelte-fa';
@@ -36,7 +37,7 @@
 	</h2>
 
 	<p class="my-2">
-		<slot />
+		<SvelteMarkdown source={problemGroup.body} />
 	</p>
 
 	<Countdown goal={problemGroup?.availableAt || null}>
