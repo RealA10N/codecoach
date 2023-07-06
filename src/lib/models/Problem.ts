@@ -2,6 +2,7 @@ export interface Problem {
 	title: string;
 	subtitle: string | null;
 	url: string;
+	solved?: boolean;
 }
 
 export interface ProblemGroup {
@@ -9,6 +10,6 @@ export interface ProblemGroup {
 	subtitle: string | null;
 	body: string;
 	availableAt?: string;
-	publicProblems: Problem[];
-	extraProblems: Problem[];
+	publicProblems?: Problem[];
+	extraProblems?: Problem[];
 }
