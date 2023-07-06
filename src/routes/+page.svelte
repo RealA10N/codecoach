@@ -4,7 +4,6 @@
 	import type { PageServerData } from './$types';
 	import w0 from '$src/problems/week0.json';
 	import w1 from '$src/problems/week1.json';
-	import Countdown from '$src/lib/components/countdown/Countdown.svelte';
 
 	export let data: PageServerData;
 </script>
