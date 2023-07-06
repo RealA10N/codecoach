@@ -19,5 +19,3 @@
 	It is also highly encouraged to solve the problems using C++ and getting used
 	to it if you are not quite familiar with the language yet. Have fun! 🙂
 </ProblemGroup>
-
-<Countdown />
