@@ -5,6 +5,11 @@
         "body": "Welcome to Competitive Programming! 👋 Our training sessions will officially begin in the next week, but until then you are more then welcome to start solving some problems by yourself!",
         "publicProblems": [
             {
+                "title": "Repetitions",
+                "subtitle": "CSES Introductory Problems",
+                "url": "https://cses.fi/problemset/task/1069"
+            },
+            {
                 "title": "Berland Poker",
                 "subtitle": "Educational Codeforces Round 88 (Div. 2)",
                 "url": "https://codeforces.com/contest/1359/problem/A"
@@ -18,14 +23,14 @@
                 "title": "Number of Apartments",
                 "subtitle": "Educational Codeforces Round 96 (Div. 2)",
                 "url": "https://codeforces.com/contest/1430/problem/A"
-            },
+            }
+        ],
+        "extraProblems": [
             {
                 "title": "Yet Another Yet Another Task",
                 "subtitle": "Educational Codeforces Round 88 (Div. 2)",
                 "url": "https://codeforces.com/contest/1359/problem/D"
-            }
-        ],
-        "extraProblems": [
+            },
             {
                 "title": "Shuffle",
                 "subtitle": "Educational Codeforces Round 120 (Div. 2)",
