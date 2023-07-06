@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import { scale } from 'svelte/transition';
 	import Rolling from './Rolling.svelte';
+	import Fa from 'svelte-fa';
+	import { faHourglassHalf } from '@fortawesome/free-solid-svg-icons';
 
 	export let goal: Date | string | null;
 
@@ -35,9 +37,10 @@
 	</div>
 {:else}
 	<div
-		class="text-center p-4 bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700"
+		class="text-center py-4 px-8 bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700"
 		out:scale={{ duration: 400 }}
 	>
+		<Fa icon={faHourglassHalf} class="inline opacity-75" fw />
 		Unlocking problems in
 		{#if days > 1}
 			<Rolling inner={days} /> days
