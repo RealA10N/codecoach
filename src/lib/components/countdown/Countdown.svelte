@@ -7,7 +7,8 @@
 
 	let seconds: number = Infinity,
 		minutes: number = Infinity,
-		hours: number = Infinity;
+		hours: number = Infinity,
+		days: number = Infinity;
 	let goalPassed: boolean = true;
 
 	const update = () => {
@@ -16,6 +17,7 @@
 		seconds = Math.floor(secondsDiff % 60);
 		minutes = Math.floor((secondsDiff / 60) % 60);
 		hours = Math.floor(secondsDiff / (60 * 60));
+		days = Math.floor(secondsDiff / (60 * 60 * 24));
 	};
 
 	onMount(() => {
@@ -37,10 +39,12 @@
 		out:scale={{ duration: 400 }}
 	>
 		Unlocking problems in
-		{#if hours > 0}
-			<Rolling inner={hours} /> hours,
+		{#if days > 1}
+			<Rolling inner={days} /> days
+		{:else}
+			<Rolling inner={hours} /> hours
+			<Rolling inner={minutes} /> minutes and
+			<Rolling inner={seconds} /> seconds
 		{/if}
-		<Rolling inner={minutes} /> minutes and
-		<Rolling inner={seconds} /> seconds!
 	</div>
 {/if}
