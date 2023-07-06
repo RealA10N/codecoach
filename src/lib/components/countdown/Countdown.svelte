@@ -3,7 +3,7 @@
 	import { scale } from 'svelte/transition';
 	import Rolling from './Rolling.svelte';
 
-	export let goal: Date | null;
+	export let goal: Date | string | null;
 
 	let seconds: number = Infinity,
 		minutes: number = Infinity,
@@ -19,6 +19,7 @@
 	};
 
 	onMount(() => {
+		if (typeof goal == 'string') goal = new Date(goal);
 		if (goal) {
 			update();
 			setInterval(update, 1000);
@@ -27,21 +28,19 @@
 </script>
 
 {#if goalPassed}
-	<div in:scale>
+	<div in:scale={{ delay: 400 }}>
 		<slot />
 	</div>
 {:else}
 	<div
 		class="text-center p-4 font-medium bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700"
+		out:scale={{ duration: 400 }}
 	>
+		Unlocking problems in
 		{#if hours > 0}
-			Unlocking problems in <Rolling inner={hours} /> hours.
-		{:else if minutes > 0}
-			Unlocking problems in <Rolling inner={minutes} /> minutes and <Rolling
-				inner={seconds}
-			/> seconds!
-		{:else}
-			Unlocking problems in <Rolling inner={seconds} /> seconds!
+			<Rolling inner={hours} /> hours,
 		{/if}
+		<Rolling inner={minutes} /> minutes and
+		<Rolling inner={seconds} /> seconds!
 	</div>
 {/if}

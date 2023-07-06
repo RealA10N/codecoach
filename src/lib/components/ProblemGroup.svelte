@@ -9,6 +9,7 @@
 	} from '@fortawesome/free-solid-svg-icons';
 	import type { SolutionId } from '../models/user';
 	import type { ProblemGroup } from '$src/lib/models/problem';
+	import Countdown from '$lib/components/countdown/Countdown.svelte';
 
 	export let problemGroup: ProblemGroup;
 	export let solutions: SolutionId[] | null;
@@ -38,37 +39,40 @@
 		<slot />
 	</p>
 
-	{#each problemGroup.publicProblems as problem}
-		<ProblemListing {...problem} isSolved={isSolved(problem)} />
-	{/each}
-
-	{#if unsolvedPublicProblemsCount === 0}
-		{#each problemGroup.extraProblems as problem}
+	<Countdown goal={problemGroup?.availableAt || null}>
+		{#each problemGroup.publicProblems as problem}
 			<ProblemListing {...problem} isSolved={isSolved(problem)} />
 		{/each}
-	{/if}
 
-	{#if solutions !== null && problemGroup.extraProblems}
-		<p class="text-center my-2 text-sm">
-			{#if unsolvedPublicProblemsCount === 0 && unsolvedExtraProblemsCount === 0}
-				<Fa icon={faStar} class="inline opacity-50" fw />
-			{:else if unsolvedPublicProblemsCount === 0}
-				<Fa icon={faLockOpen} class="inline opacity-50" fw />
-			{:else}
-				<Fa icon={faLock} class="inline opacity-50" fw />
-			{/if}
+		{#if unsolvedPublicProblemsCount === 0}
+			{#each problemGroup.extraProblems as problem}
+				<ProblemListing {...problem} isSolved={isSolved(problem)} />
+			{/each}
+		{/if}
 
-			{#if unsolvedPublicProblemsCount === problemGroup.publicProblems.length}
-				Solve all problems to unlock additional ones!
-			{:else if unsolvedPublicProblemsCount > 1}
-				Solve {unsolvedPublicProblemsCount} more problems to unlock additional ones!
-			{:else if unsolvedPublicProblemsCount === 1}
-				Solve one more problem to unlock the additional ones!
-			{:else if unsolvedExtraProblemsCount === 0}
-				Good job! You have solved all available problems.
-			{:else}
-				Additional problems unlocked!
-			{/if}
-		</p>
-	{/if}
+		{#if solutions !== null && problemGroup.extraProblems}
+			<p class="text-center my-2 text-sm">
+				{#if unsolvedPublicProblemsCount === 0 && unsolvedExtraProblemsCount === 0}
+					<Fa icon={faStar} class="inline opacity-50" fw />
+				{:else if unsolvedPublicProblemsCount === 0}
+					<Fa icon={faLockOpen} class="inline opacity-50" fw />
+				{:else}
+					<Fa icon={faLock} class="inline opacity-50" fw />
+				{/if}
+
+				{#if unsolvedPublicProblemsCount === problemGroup.publicProblems.length}
+					Solve all problems to unlock additional ones!
+				{:else if unsolvedPublicProblemsCount > 1}
+					Solve {unsolvedPublicProblemsCount} more problems to unlock additional
+					ones!
+				{:else if unsolvedPublicProblemsCount === 1}
+					Solve one more problem to unlock the additional ones!
+				{:else if unsolvedExtraProblemsCount === 0}
+					Good job! You have solved all available problems.
+				{:else}
+					Additional problems unlocked!
+				{/if}
+			</p>
+		{/if}
+	</Countdown>
 </div>
