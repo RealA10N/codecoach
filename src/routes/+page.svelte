@@ -3,6 +3,7 @@
 	import AuthHeader from '$src/lib/components/AuthHeader.svelte';
 	import type { PageServerData } from './$types';
 	import w1 from '$src/problems/week1.json';
+	import Countdown from '$src/lib/components/countdown/Countdown.svelte';
 
 	export let data: PageServerData;
 </script>
@@ -18,3 +19,5 @@
 	It is also highly encouraged to solve the problems using C++ and getting used
 	to it if you are not quite familiar with the language yet. Have fun! 🙂
 </ProblemGroup>
+
+<Countdown />
