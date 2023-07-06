@@ -32,13 +32,13 @@
 </script>
 
 {#if goalPassed}
-	<div in:scale={{ delay: 400 }}>
+	<div>
 		<slot />
 	</div>
 {:else}
 	<div
 		class="text-center py-4 px-8 bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700"
-		out:scale={{ duration: 400 }}
+		out:scale
 	>
 		<Fa icon={faHourglassHalf} class="inline opacity-75" fw />
 		Unlocking problems in

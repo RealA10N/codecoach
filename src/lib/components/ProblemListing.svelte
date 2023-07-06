@@ -2,12 +2,12 @@
 	export let title: string;
 	export let subtitle: string | null = null;
 	export let url: string;
-	export let isSolved: boolean = false;
+	export let solved: boolean = false;
 </script>
 
 <div
 	class="relative flex py-1 px-3 hover:z-10 hover:scale-[1.025] transition-all
-		select-none {isSolved ? 'solved' : 'not-applicable'}"
+		select-none {solved ? 'solved' : 'not-applicable'}"
 >
 	<a class="flex-1 text-center no-underline" href={url} target="_blank">
 		{title}

@@ -8,14 +8,12 @@
 		faLockOpen,
 		faStar
 	} from '@fortawesome/free-solid-svg-icons';
-	import type { SolutionId } from '../models/user';
 	import Countdown from '$lib/components/countdown/Countdown.svelte';
 
 	export let problemGroup: ProblemGroup;
-	export let solutions: SolutionId[] | null;
 
 	function isSolved(problem: Problem) {
-		return solutions?.includes(problem.url) ?? false;
+		return problem?.solved ?? false;
 	}
 
 	let unsolvedPublicProblemsCount = (problemGroup.publicProblems || []).filter(
@@ -41,16 +39,16 @@
 
 	<Countdown goal={problemGroup?.availableAt || null}>
 		{#each problemGroup?.publicProblems || [] as problem}
-			<ProblemListing {...problem} isSolved={isSolved(problem)} />
+			<ProblemListing {...problem} />
 		{/each}
 
 		{#if unsolvedPublicProblemsCount === 0}
 			{#each problemGroup?.extraProblems || [] as problem}
-				<ProblemListing {...problem} isSolved={isSolved(problem)} />
+				<ProblemListing {...problem} />
 			{/each}
 		{/if}
 
-		{#if solutions !== null && problemGroup.extraProblems}
+		{#if problemGroup.extraProblems}
 			<p class="text-center my-2 text-sm">
 				{#if unsolvedPublicProblemsCount === 0 && unsolvedExtraProblemsCount === 0}
 					<Fa icon={faStar} class="inline opacity-50" fw />
