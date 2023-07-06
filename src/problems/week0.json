@@ -1,0 +1,38 @@
+{
+    "title": "Welcome",
+    "subtitle": "Week 0",
+    "publicProblems": [
+        {
+            "title": "Berland Poker",
+            "subtitle": "Educational Codeforces Round 88 (Div. 2)",
+            "url": "https://codeforces.com/contest/1359/problem/A"
+        },
+        {
+            "title": "New Theatre Square",
+            "subtitle": "Educational Codeforces Round 88 (Div. 2)",
+            "url": "https://codeforces.com/contest/1359/problem/B"
+        },
+        {
+            "title": "Number of Apartments",
+            "subtitle": "Educational Codeforces Round 96 (Div. 2)",
+            "url": "https://codeforces.com/contest/1430/problem/A"
+        },
+        {
+            "title": "Yet Another Yet Another Task",
+            "subtitle": "Educational Codeforces Round 88 (Div. 2)",
+            "url": "https://codeforces.com/contest/1359/problem/D"
+        }
+    ],
+    "extraProblems": [
+        {
+            "title": "Shuffle",
+            "subtitle": "Educational Codeforces Round 120 (Div. 2)",
+            "url": "https://codeforces.com/contest/1622/problem/D"
+        },
+        {
+            "title": "Magic Ship",
+            "subtitle": "Educational Codeforces Round 60 (Div. 2)",
+            "url": "https://codeforces.com/contest/1117/problem/C"
+        }
+    ]
+}

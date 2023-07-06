@@ -7,7 +7,7 @@ export interface Problem {
 export interface ProblemGroup {
 	title: string;
 	subtitle: string | null;
-	availableAt: string | null;
+	availableAt?: string;
 	publicProblems: Problem[];
 	extraProblems: Problem[];
 }
