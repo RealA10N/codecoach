@@ -11,6 +11,5 @@ export const load = async ({ locals }) => {
 	);
 
 	const servedProblems = markSolvedProblems(getAvailableProblems(), solutions);
-	console.log(servedProblems);
 	return { loggedInUser: locals.loggedInUser, problems: servedProblems };
 };
