@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ProblemGroup from '$lib/components/ProblemGroup.svelte';
-	import AuthHeader from '$src/lib/components/AuthHeader.svelte';
+	import AuthHeader from '$lib/components/AuthHeader.svelte';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
