@@ -1,48 +1,54 @@
-import problemsets from '$src/problems.json';
-import type { Problem, ProblemGroup } from '$lib/models/Problem';
+import type { Problem, ProblemGroup, Session } from '$lib/models/Problem';
 
-export function getAvailableProblems(): ProblemGroup[] {
-	const now = new Date(Date.now());
+import sessionsJson from '$src/sessions.json';
+const sessions: Session[] = sessionsJson;
 
-	return (problemsets as ProblemGroup[]).map((set) => {
-		if (!set?.availableAt) return set;
-		else {
-			const date = new Date(set.availableAt);
-			if (date <= now) return set;
-			const { publicProblems, extraProblems, ...other } = set;
-			return other;
-		}
-	});
+export function getAvailableSessions(): Session[] {
+	const notHiddenOnly = sessions.filter((session) => !session?.hidden);
+	return notHiddenOnly.map(maskAvailableSession);
 }
 
-function markSolvedProblemsInProblemList(
-	problems: Problem[],
+function maskAvailableSession(session: Session): Session {
+	return {
+		...session,
+		problems: maskAvailableProblems(session.problems)
+	};
+}
+
+function maskAvailableProblems(problems: ProblemGroup): ProblemGroup {
+	// Remove problems that are not available yet on the server side.
+	if (!problems.availableAt) return problems;
+	const now = new Date(Date.now());
+	const date = new Date(problems.availableAt);
+	if (date <= now) return problems;
+	return { availableAt: problems.availableAt };
+}
+
+function markSolvedProblems(
+	problems: Problem[] | undefined,
 	solutions: string[]
 ) {
+	if (!problems) return undefined;
 	return problems.map(
 		(problem) =>
 			({ solved: solutions.includes(problem.url), ...problem } as Problem)
 	);
 }
 
-export function markSolvedProblems(
-	problemsets: ProblemGroup[],
+export function markSolvedProblemsInSession(
+	sessions: Session[],
 	solutions: string[] | null
-): ProblemGroup[] {
-	if (!solutions) return problemsets;
-	return problemsets.map((set) => ({
-		...set,
-		...(set?.publicProblems && {
-			publicProblems: markSolvedProblemsInProblemList(
-				set.publicProblems,
-				solutions
-			)
-		}),
-		...(set?.extraProblems && {
-			extraProblems: markSolvedProblemsInProblemList(
-				set.extraProblems,
-				solutions
-			)
-		})
-	}));
+): Session[] {
+	if (!solutions) return sessions;
+	return sessions.map(
+		(session) =>
+			({
+				...session,
+				problems: {
+					...session.problems,
+					public: markSolvedProblems(session?.problems?.public, solutions),
+					extra: markSolvedProblems(session?.problems?.extra, solutions)
+				}
+			} as Session)
+	);
 }

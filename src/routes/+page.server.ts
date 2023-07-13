@@ -1,7 +1,7 @@
 import { getSolutions } from '$src/lib/services/db.server';
 import {
-	getAvailableProblems,
-	markSolvedProblems
+	getAvailableSessions,
+	markSolvedProblemsInSession
 } from '$src/lib/services/problems.server';
 
 export const load = async ({ locals }) => {
@@ -10,6 +10,14 @@ export const load = async ({ locals }) => {
 		locals.loggedInUser?.id ?? null
 	);
 
-	const servedProblems = markSolvedProblems(getAvailableProblems(), solutions);
-	return { loggedInUser: locals.loggedInUser, problems: servedProblems };
+	const availableSessions = getAvailableSessions();
+	const servedSessions = markSolvedProblemsInSession(
+		availableSessions,
+		solutions
+	);
+
+	return {
+		loggedInUser: locals.loggedInUser,
+		sessions: servedSessions
+	};
 };

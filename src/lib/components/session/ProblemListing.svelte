@@ -1,19 +1,17 @@
 <script lang="ts">
-	export let title: string;
-	export let subtitle: string | null = null;
-	export let url: string;
-	export let solved: boolean = false;
+	import type { Problem } from '$lib/models/Problem';
+	export let problem: Problem;
 </script>
 
 <div
 	class="relative flex py-1 px-3 hover:z-10 hover:scale-[1.025] transition-all
-		select-none {solved ? 'solved' : 'not-applicable'}"
+		select-none {problem.solved ? 'solved' : 'not-applicable'}"
 >
-	<a class="flex-1 text-center no-underline" href={url} target="_blank">
-		{title}
-		{#if subtitle}
+	<a class="flex-1 text-center no-underline" href={problem.url} target="_blank">
+		{problem.title}
+		{#if problem.subtitle}
 			<span class="text-xs opacity-70 absolute invisible sm:visible sm:relative"
-				>{subtitle}</span
+				>{problem.subtitle}</span
 			>
 		{/if}
 	</a>

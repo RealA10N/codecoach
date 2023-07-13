@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ProblemGroup from '$lib/components/ProblemGroup.svelte';
+	import SessionBox from '$lib/components/session/SessionBox.svelte';
 	import AuthHeader from '$lib/components/AuthHeader.svelte';
 	import type { PageServerData } from './$types';
 
@@ -8,6 +8,6 @@
 
 <AuthHeader user={data.loggedInUser} />
 
-{#each data.problems as problem}
-	<ProblemGroup problemGroup={problem} />
+{#each data.sessions as session}
+	<SessionBox {session} />
 {/each}
