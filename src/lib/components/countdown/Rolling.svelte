@@ -6,8 +6,8 @@
 {#key inner}
 	<div
 		class="absolute inline-block"
-		in:fly={{ y: '-100%' }}
-		out:fly={{ y: '100%' }}
+		in:fly|local={{ y: '-100%' }}
+		out:fly|local={{ y: '100%' }}
 	>
 		{inner}
 	</div>
