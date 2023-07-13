@@ -10,10 +10,7 @@
 	onMount(async () => {
 		fetch(url)
 			.then(async (response) => response.text())
-			.then((data) => {
-				source = data;
-				console.log(source);
-			});
+			.then((data) => (source = data));
 	});
 </script>
 
