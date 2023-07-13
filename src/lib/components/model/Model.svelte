@@ -15,9 +15,9 @@
 	on:close={() => (showModel = false)}
 	on:click|self={() => dialog.close()}
 	transition:fly={{ y: 50 }}
-	class="bg-neutral-200 dark:bg-neutral-800 shadow-lg absolute m-auto w-full max-w-xl
+	class="bg-neutral-800 shadow-lg absolute m-auto w-full max-w-min
 		backdrop:backdrop-blur-[2px] backdrop:bg-black backdrop:bg-opacity-50
-		open:animate-pop-in"
+		open:animate-pop-in text-neutral-200"
 	{...$$restProps}
 >
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
