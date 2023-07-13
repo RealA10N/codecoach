@@ -3,7 +3,6 @@
 <script lang="ts">
 	import Fa from 'svelte-fa';
 	import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
-	import { fly } from 'svelte/transition';
 
 	export let showModel: boolean;
 	let dialog: HTMLDialogElement;
@@ -14,7 +13,6 @@
 	bind:this={dialog}
 	on:close={() => (showModel = false)}
 	on:click|self={() => dialog.close()}
-	transition:fly={{ y: 50 }}
 	class="bg-neutral-800 shadow-lg absolute m-auto w-full max-w-min
 		backdrop:backdrop-blur-[2px] backdrop:bg-black backdrop:bg-opacity-50
 		open:animate-pop-in text-neutral-200"
