@@ -12,9 +12,10 @@
 		font-family: 'Inter', sans-serif;
 	}
 
-	i {
-		font-family: 'Schoolbell', cursive;
-		font-weight: 500;
+	i,
+	em {
+		font-family: 'Comic Neue', sans-serif;
+		font-style: normal;
 	}
 
 	h1,
