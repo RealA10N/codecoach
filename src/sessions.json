@@ -76,6 +76,12 @@
                 "type": "material"
             },
             {
+                "title": "C++ Reference",
+                "subtitle": "Documentation of C++ and stdlibs",
+                "url": "https://en.cppreference.com/w/cpp",
+                "type": "material"
+            },
+            {
                 "title": "Bar's Template",
                 "type": "snippet",
                 "url": "https://ity.sh/oF6nQ6mVHGn"
