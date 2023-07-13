@@ -6,8 +6,8 @@ export interface Problem {
 }
 
 export enum ResourceType {
-	snippet,
-	material
+	snippet = 'snippet',
+	material = 'material'
 }
 
 export interface Resource {
