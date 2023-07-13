@@ -3,6 +3,7 @@
 	import { Tabs, Tab, TabList, TabPanel } from '$lib/components/tabs/tabs';
 	import type { Session } from '$lib/models/Problem';
 	import ProblemsBox from '$lib/components/session/ProblemsBox.svelte';
+	import ResourcesBox from './ResourcesBox.svelte';
 
 	export let session: Session;
 	let selectedId: string = 'problems';
@@ -36,7 +37,9 @@
 		</TabPanel>
 
 		{#if showTabs}
-			<TabPanel id="resources">Resources here.</TabPanel>
+			<TabPanel id="resources">
+				<ResourcesBox resources={session.resources} />
+			</TabPanel>
 		{/if}
 	</Tabs>
 </div>

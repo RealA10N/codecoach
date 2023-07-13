@@ -44,7 +44,19 @@
                     "url": "https://cses.fi/problemset/task/1076"
                 }
             ]
-        }
+        },
+        "resources": [
+            {
+                "title": "Bar's Template",
+                "type": "snippet",
+                "url": "https://ity.sh/vNVu6fbw7z3"
+            },
+            {
+                "title": "Alon's Template",
+                "type": "snippet",
+                "url": "https://ity.sh/xAzJNUw7C8Q"
+            }
+        ]
     },
     {
         "title": "Welcome",
