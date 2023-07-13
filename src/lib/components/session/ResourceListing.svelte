@@ -3,6 +3,10 @@
 	import { ResourceType } from '$lib/models/Problem';
 	import Model from '$lib/components/model/Model.svelte';
 	import ExternalCodeSnippet from '../snippet/ExternalCodeSnippet.svelte';
+
+	import Fa from 'svelte-fa';
+	import { faBook, faCode, faLink } from '@fortawesome/free-solid-svg-icons';
+
 	export let resource: Resource;
 	let showModel: boolean = false;
 </script>
@@ -15,6 +19,7 @@
 >
 	{#if resource.type === ResourceType.snippet}
 		<a on:click={() => (showModel = true)}>
+			<Fa icon={faCode} class="inline mr-1 opacity-50" fw />
 			{resource.title}
 			{#if resource.subtitle}
 				<span>{resource.subtitle}</span>
@@ -27,6 +32,11 @@
 		</Model>
 	{:else}
 		<a href={resource.url} target="_blank">
+			{#if resource.type === ResourceType.material}
+				<Fa icon={faBook} class="inline mr-1 opacity-50" fw />
+			{:else}
+				<Fa icon={faLink} class="inline mr-1 opacity-50" fw />
+			{/if}
 			{resource.title}
 			{#if resource.subtitle}
 				<span>{resource.subtitle}</span>
