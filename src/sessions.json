@@ -47,6 +47,35 @@
         },
         "resources": [
             {
+                "title": "USACO IDE",
+                "subtitle": "Online IDE built for CP",
+                "url": "https://ide.usaco.guide/",
+                "type": "link"
+            },
+            {
+                "title": "Judge0 IDE",
+                "subtitle": "Alternative, lightweight online IDE",
+                "url": "https://ide.judge0.com/",
+                "type": "link"
+            },
+            {
+                "title": "Competitive Programmer's Handbook",
+                "url": "cses.fi/book/book.pdf",
+                "type": "material"
+            },
+            {
+                "title": "CP Algorithms",
+                "subtitle": "The Wikipedia of CP",
+                "url": "https://cp-algorithms.com/",
+                "type": "material"
+            },
+            {
+                "title": "USACO Guide",
+                "subtitle": "A well built online CP guide",
+                "url": "https://usaco.guide/bronze/",
+                "type": "material"
+            },
+            {
                 "title": "Bar's Template",
                 "type": "snippet",
                 "url": "https://ity.sh/vNVu6fbw7z3"
