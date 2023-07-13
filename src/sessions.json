@@ -2,7 +2,7 @@
     {
         "title": "Introduction",
         "subtitle": "Week 1",
-        "body": "Thanks for coming to the first session! 🎉 Today, you will mainly get to know [Codeforces](https://codeforces.com) and [CSES](https://cses.fi/problemset), two popular online judges for competitive programming that we will be using this semester. It is also highly encouraged to solve the problems using C++ and getting used to it if you are not quite familiar with the language yet. Have fun! 🙂",
+        "body": "Welcome to our first session! 🎉 We're so glad you could make it. Today, we'll be introducing you to [Codeforces](https://codeforces.com/) and [CSES](https://cses.fi/), two amazing online judges for competitive programming that we'll be using throughout the semester. Don't worry if you're not familiar with C++ yet, we highly encourage you to give it a try and have fun while solving the problems. And don't forget to check out the *resources* tab below 👇, it's packed with helpful tools, learning materials, and code templates. Enjoy! 😊",
         "problems": {
             "availableAt": "2023-07-16T16:15:00+00:00",
             "public": [
