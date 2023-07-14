@@ -59,6 +59,12 @@
                 "type": "link"
             },
             {
+                "title": "VSCode with C++",
+                "subtitle": "A guide for Windows users",
+                "url": "https://code.visualstudio.com/docs/cpp/config-mingw",
+                "type": "link"
+            },
+            {
                 "title": "Competitive Programmer's Handbook",
                 "url": "cses.fi/book/book.pdf",
                 "type": "material"
