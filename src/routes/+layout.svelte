@@ -12,6 +12,6 @@
 
 <AuthHeader user={data.loggedInUser} />
 
-<main class="mx-auto flex max-w-fit">
+<main class="mx-auto flex max-w-fit flex-wrap justify-center">
 	<slot />
 </main>
