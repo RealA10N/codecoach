@@ -16,8 +16,5 @@ export const load = async ({ locals }) => {
 		solutions
 	);
 
-	return {
-		loggedInUser: locals.loggedInUser,
-		sessions: servedSessions
-	};
+	return { sessions: servedSessions };
 };

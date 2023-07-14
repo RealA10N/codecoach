@@ -9,7 +9,7 @@
 	export let user: User | null;
 </script>
 
-<div class="text-center sm:text-right">
+<header class="text-center mx-auto mt-8">
 	{#if user}
 		<a rel="external" href="/logout" class="inline-block no-underline">
 			Welcome, {user.name}
@@ -21,4 +21,4 @@
 			Login to view progress
 		</a>
 	{/if}
-</div>
+</header>
