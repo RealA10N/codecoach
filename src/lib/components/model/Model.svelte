@@ -13,8 +13,8 @@
 	bind:this={dialog}
 	on:close={() => (showModel = false)}
 	on:click|self={() => dialog.close()}
-	class="bg-neutral-800 shadow-sm m-4 w-100 fixed max-h-[75vh]
-			top-1/2 left-1/2 box-border -translate-x-1/2 -translate-y-1/2
+	class="bg-neutral-800 shadow-sm m-4 w-100 fixed box-border
+	sm:max-h-[75vh] sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2
 			backdrop:backdrop-blur-[2px] backdrop:bg-black backdrop:bg-opacity-50
 			open:animate-pop-in text-neutral-200"
 	{...$$restProps}
