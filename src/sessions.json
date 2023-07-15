@@ -34,14 +34,14 @@
                     "url": "https://cses.fi/problemset/task/2428"
                 },
                 {
+                    "title": "Maximum Subarray Sum",
+                    "subtitle": "CSES Sorting and Searching",
+                    "url": "https://cses.fi/problemset/task/1643"
+                },
+                {
                     "title": "Circle of Monsters",
                     "subtitle": "Educational Codeforces Round 85",
                     "url": "https://codeforces.com/contest/1334/problem/C"
-                },
-                {
-                    "title": "Sliding Median",
-                    "subtitle": "CSES Sorting and Searching",
-                    "url": "https://cses.fi/problemset/task/1076"
                 }
             ]
         },
