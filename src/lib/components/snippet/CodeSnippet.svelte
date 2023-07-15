@@ -42,6 +42,8 @@
 	}
 </script>
 
-<pre {...$$restProps} class="max-w-2xl overflow-x-clip"><code
+<pre
+	{...$$restProps}
+	class="max-w-2xl overflow-x-clip text-xs sm:text-base"><code
 		class="language-{language}">{@html formattedCode}</code
 	></pre>
