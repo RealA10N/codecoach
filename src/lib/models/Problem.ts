@@ -7,6 +7,8 @@ export interface Problem {
 
 export enum ResourceType {
 	snippet = 'snippet',
+	slides = 'slides',
+	link = 'link',
 	material = 'material'
 }
 

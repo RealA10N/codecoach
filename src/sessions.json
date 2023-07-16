@@ -47,6 +47,12 @@
         },
         "resources": [
             {
+                "title": "Introduction",
+                "subtitle": "Slides presented in class",
+                "url": "https://ity.sh/K4yhEDAayJZ",
+                "type": "slides"
+            },
+            {
                 "title": "USACO IDE",
                 "subtitle": "Online IDE built for CP",
                 "url": "https://ide.usaco.guide/",

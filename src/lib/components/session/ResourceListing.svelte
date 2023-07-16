@@ -5,7 +5,12 @@
 	import ExternalCodeSnippet from '../snippet/ExternalCodeSnippet.svelte';
 
 	import Fa from 'svelte-fa';
-	import { faBook, faCode, faLink } from '@fortawesome/free-solid-svg-icons';
+	import {
+		faBook,
+		faCode,
+		faFilePowerpoint,
+		faLink
+	} from '@fortawesome/free-solid-svg-icons';
 
 	export let resource: Resource;
 	let showModel: boolean = false;
@@ -19,7 +24,7 @@
 >
 	{#if resource.type === ResourceType.snippet}
 		<a on:click={() => (showModel = true)}>
-			<Fa icon={faCode} class="inline mr-1 opacity-50" fw />
+			<Fa icon={faCode} class="inline opacity-50" fw />
 			{resource.title}
 			{#if resource.subtitle}
 				<span>{resource.subtitle}</span>
@@ -33,9 +38,11 @@
 	{:else}
 		<a href={resource.url} target="_blank">
 			{#if resource.type === ResourceType.material}
-				<Fa icon={faBook} class="inline mr-1 opacity-50" fw />
+				<Fa icon={faBook} class="inline opacity-50" fw />
+			{:else if resource.type === ResourceType.slides}
+				<Fa icon={faFilePowerpoint} class="inline opacity-50" fw />
 			{:else}
-				<Fa icon={faLink} class="inline mr-1 opacity-50" fw />
+				<Fa icon={faLink} class="inline opacity-50" fw />
 			{/if}
 			{resource.title}
 			{#if resource.subtitle}
