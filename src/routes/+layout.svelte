@@ -7,11 +7,13 @@
 
 	import type { LayoutServerData } from './$types';
 	import AuthHeader from '$lib/components/AuthHeader.svelte';
+	import LayoutPanel from '$lib/components/LayoutPanel.svelte';
 	export let data: LayoutServerData;
 </script>
 
 <AuthHeader user={data.loggedInUser} />
-
 <main class="mx-auto flex max-w-fit flex-wrap justify-center">
-	<slot />
+	<LayoutPanel>
+		<slot />
+	</LayoutPanel>
 </main>
