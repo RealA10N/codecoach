@@ -4,6 +4,7 @@
 		"subtitle": "Week 2",
 		"body": "Welcome to our second session! Today we'll implement a couple of algorithms you were introduced to in the Data Structures and Algorithms courses. We suggest you to write more cpp-ish code and use the built-in data structures. Have fun! 🙃",
 		"problems": {
+			"availableAt": "2023-07-23T16:15Z",
 			"public": [
 				{
 					"title": "Road Construction",
