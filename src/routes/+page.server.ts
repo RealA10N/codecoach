@@ -1,11 +1,11 @@
-import { getSolutions } from '$src/lib/services/db.server';
+import { getUserSubmissions } from '$src/lib/services/db.server';
 import {
 	getAvailableSessions,
 	markSolvedProblemsInSession
 } from '$src/lib/services/problems.server';
 
 export const load = async ({ locals }) => {
-	const solutions = await getSolutions(
+	const userSubmissions = await getUserSubmissions(
 		locals.db,
 		locals.loggedInUser?.id ?? null
 	);
@@ -13,7 +13,7 @@ export const load = async ({ locals }) => {
 	const availableSessions = getAvailableSessions();
 	const servedSessions = markSolvedProblemsInSession(
 		availableSessions,
-		solutions
+		userSubmissions
 	);
 
 	return { sessions: servedSessions };
