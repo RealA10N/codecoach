@@ -4,7 +4,6 @@
 		"subtitle": "Week 2",
 		"body": "Welcome to our second session! Today we'll implement a couple of algorithms you were introduced to in the Data Structures and Algorithms courses. We suggest you to write more cpp-ish code and use the built-in data structures. Have fun! 🙃",
 		"problems": {
-			"availableAt": "2023-07-23T16:15Z",
 			"public": [
 				{
 					"title": "Road Construction",
@@ -19,7 +18,7 @@
 				{
 					"title": "Nearest Smaller Values",
 					"subtitle": "CSES Sorting and Searching",
-					"url": "https://cses.fi/problemset/task/1645/"
+					"url": "https://cses.fi/problemset/task/1645"
 				},
 				{
 					"title": "Ice Skating",
@@ -27,7 +26,28 @@
 					"url": "https://codeforces.com/contest/217/problem/A"
 				}
 			],
-			"extra": []
+			"extra": [
+				{
+					"title": "Parking",
+					"subtitle": "ITMO Academy: pilot course",
+					"url": "https://codeforces.com/edu/course/2/lesson/7/2/practice/contest/289391/problem/B"
+				},
+				{
+					"title": "Network Breakdown",
+					"subtitle": "CSES Additional Problems",
+					"url": "https://cses.fi/problemset/task/1677"
+				},
+				{
+					"title": "Josephus Queries",
+					"subtitle": "CSES Mathematics",
+					"url": "https://cses.fi/problemset/task/2164"
+				},
+				{
+					"title": "Replace With the Previous, Minimize",
+					"subtitle": "Codeforces Round 787 (Div. 3)",
+					"url": "https://codeforces.com/contest/1675/problem/E"
+				}
+			]
 		},
 		"resources": [
 			{
