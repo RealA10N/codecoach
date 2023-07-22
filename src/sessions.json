@@ -47,6 +47,12 @@
 				"subtitle": "Article from CP-Algorithms",
 				"url": "https://cp-algorithms.com/graph/mst_kruskal.html",
 				"type": "link"
+			},
+			{
+				"title": "Alon's DSU",
+				"subtitle": "A concise DSU implementation",
+				"url": "https://ity.sh/nC44fvvHGrq",
+				"type": "snippet"
 			}
 		]
 	},
