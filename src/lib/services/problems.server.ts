@@ -1,4 +1,5 @@
 import type { Problem, ProblemGroup, Session } from '$lib/models/Problem';
+import { SubmissionVerdict, type UserSubmissions } from '$lib/models/submissions';
 
 import sessionsJson from '$src/sessions.json';
 const sessions: Session[] = sessionsJson;
@@ -24,31 +25,37 @@ function maskAvailableProblems(problems: ProblemGroup): ProblemGroup {
 	return { availableAt: problems.availableAt };
 }
 
+function isProblemAccepted(problem: Problem, submissions: UserSubmissions): boolean {
+	const acceptedSubmissions = submissions.submissions.filter(submission => submission.verdict == SubmissionVerdict.accepted);
+	const acceptedProblemUrls = acceptedSubmissions.map(sub => sub.problem_url);
+	return acceptedProblemUrls.includes(problem.url);
+}
+
 function markSolvedProblems(
 	problems: Problem[] | undefined,
-	solutions: string[]
+	submissions: UserSubmissions
 ) {
 	if (!problems) return undefined;
 	return problems.map(
 		(problem) =>
-			({ solved: solutions.includes(problem.url), ...problem } as Problem)
+			({ solved: isProblemAccepted(problem, submissions), ...problem } as Problem)
 	);
 }
 
 export function markSolvedProblemsInSession(
 	sessions: Session[],
-	solutions: string[] | null
+	submissions: UserSubmissions | null
 ): Session[] {
-	if (!solutions) return sessions;
+	if (!submissions) return sessions;
 	return sessions.map(
 		(session) =>
-			({
-				...session,
-				problems: {
-					...session.problems,
-					public: markSolvedProblems(session?.problems?.public, solutions),
-					extra: markSolvedProblems(session?.problems?.extra, solutions)
-				}
-			} as Session)
+		({
+			...session,
+			problems: {
+				...session.problems,
+				public: markSolvedProblems(session?.problems?.public, submissions),
+				extra: markSolvedProblems(session?.problems?.extra, submissions)
+			}
+		} as Session)
 	);
 }
