@@ -1,11 +1,13 @@
 <script lang="ts">
 	import type { Problem } from '$lib/models/Problem';
 	export let problem: Problem;
+
+	let className = problem.solved? 'solved' : (problem.notTrackable? 'not-trackable' : 'not-applicable');
 </script>
 
 <div
 	class="relative flex py-1 px-3 hover:z-10 hover:scale-[1.025] transition-all
-		select-none {problem.solved ? 'solved' : 'not-applicable'}"
+		select-none {className}"
 >
 	<a class="flex-1 text-center no-underline" href={problem.url} target="_blank">
 		{problem.title}
@@ -24,5 +26,9 @@
 
 	.not-applicable {
 		@apply bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700;
+	}
+
+	.not-trackable {
+		@apply bg-cyan-200 hover:bg-cyan-300 dark:bg-cyan-800 dark:hover:bg-cyan-700;
 	}
 </style>

@@ -1,6 +1,7 @@
 export interface Problem {
 	title: string;
 	subtitle?: string;
+	notTrackable?: boolean;
 	url: string;
 	solved?: boolean;
 }
