@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { User } from '$lib/models/user';
+	import type { UserConfig } from '$lib/models/user';
 	import Fa from 'svelte-fa';
 	import {
 		faRightToBracket,
 		faRightFromBracket
 	} from '@fortawesome/free-solid-svg-icons';
 
-	export let user: User | null;
+	export let user: UserConfig | null;
 </script>
 
 <header class="text-center mx-auto mt-8">
