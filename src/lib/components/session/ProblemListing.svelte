@@ -2,7 +2,11 @@
 	import type { Problem } from '$lib/models/Problem';
 	export let problem: Problem;
 
-	let className = problem.solved? 'solved' : (problem.notTrackable? 'not-trackable' : 'not-applicable');
+	let className = problem.solved
+		? 'solved'
+		: problem.notTrackable
+		? 'not-trackable'
+		: 'not-applicable';
 </script>
 
 <div

@@ -7,20 +7,20 @@ export type CsesUserNumber = number;
 export type SolutionId = string;
 
 export interface UserPassword {
-    id: UserUId;
-    passwordHash: PasswordHash;
+	id: UserUId;
+	passwordHash: PasswordHash;
 }
 
 export interface UserConfig {
-    id: UserUId;
-    name: UserName;
-    email: Email;
-    codeforces: CodeforcesHandle;
-    cses: CsesUserNumber;
-    isAdmin: boolean;
+	id: UserUId;
+	name: UserName;
+	email: Email;
+	codeforces: CodeforcesHandle;
+	cses: CsesUserNumber;
+	isAdmin: boolean;
 }
 
 export interface UserSolutions {
-    id: UserUId;
-    solutions: SolutionId[];
+	id: UserUId;
+	solutions: SolutionId[];
 }

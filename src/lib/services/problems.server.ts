@@ -1,5 +1,8 @@
 import type { Problem, ProblemGroup, Session } from '$lib/models/Problem';
-import { SubmissionVerdict, type UserSubmissions } from '$lib/models/submissions';
+import {
+	SubmissionVerdict,
+	type UserSubmissions
+} from '$lib/models/submissions';
 
 import sessionsJson from '$src/sessions.json';
 const sessions: Session[] = sessionsJson;
@@ -25,9 +28,14 @@ function maskAvailableProblems(problems: ProblemGroup): ProblemGroup {
 	return { availableAt: problems.availableAt };
 }
 
-function isProblemAccepted(problem: Problem, submissions: UserSubmissions): boolean {
-	const acceptedSubmissions = submissions.submissions.filter(submission => submission.verdict == SubmissionVerdict.accepted);
-	const acceptedProblemUrls = acceptedSubmissions.map(sub => sub.problem_url);
+function isProblemAccepted(
+	problem: Problem,
+	submissions: UserSubmissions
+): boolean {
+	const acceptedSubmissions = submissions.submissions.filter(
+		(submission) => submission.verdict == SubmissionVerdict.accepted
+	);
+	const acceptedProblemUrls = acceptedSubmissions.map((sub) => sub.problem_url);
 	return acceptedProblemUrls.includes(problem.url);
 }
 
@@ -38,7 +46,10 @@ function markSolvedProblems(
 	if (!problems) return undefined;
 	return problems.map(
 		(problem) =>
-			({ solved: isProblemAccepted(problem, submissions), ...problem } as Problem)
+			({
+				solved: isProblemAccepted(problem, submissions),
+				...problem
+			} as Problem)
 	);
 }
 
@@ -49,13 +60,13 @@ export function markSolvedProblemsInSession(
 	if (!submissions) return sessions;
 	return sessions.map(
 		(session) =>
-		({
-			...session,
-			problems: {
-				...session.problems,
-				public: markSolvedProblems(session?.problems?.public, submissions),
-				extra: markSolvedProblems(session?.problems?.extra, submissions)
-			}
-		} as Session)
+			({
+				...session,
+				problems: {
+					...session.problems,
+					public: markSolvedProblems(session?.problems?.public, submissions),
+					extra: markSolvedProblems(session?.problems?.extra, submissions)
+				}
+			} as Session)
 	);
 }
