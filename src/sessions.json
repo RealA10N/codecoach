@@ -1,5 +1,52 @@
 [
 	{
+		"title": "Dynamic Programming",
+		"subtitle": "Week 3",
+		"body": "Join this week's session to explore dynamic programming. This powerful technique breaks down complex problems into smaller subproblems and reuses their solutions to avoid duplicate computations. Get ready for a challenge as we ramp up the difficulty level of the practice problems. Good luck! 🚀",
+		"problems": {
+			"availableAt": "2023-07-30T16:15Z",
+			"public": [
+				{
+					"title": "The Man who became a God",
+					"subtitle": "Codeforces Round 882 (Div. 2)",
+					"url": "https://codeforces.com/contest/1847/problem/A"
+				},
+				{
+					"title": "Coin Combinations",
+					"subtitle": "CSES Dynamic Programming",
+					"url": "https://cses.fi/problemset/task/1635"
+				},
+				{
+					"title": "Increasing Subsequence",
+					"subtitle": "CSES Dynamic Programming",
+					"url": "https://cses.fi/problemset/task/1145"
+				},
+				{
+					"title": "Alternating Deck (hard version)",
+					"subtitle": "Codeforces Round 850 (Div. 2)",
+					"url": "https://codeforces.com/contest/1786/problem/A2"
+				}
+			],
+			"extra": [
+				{
+					"title": "Edit Distance",
+					"url": "https://cses.fi/problemset/task/1639",
+					"subtitle": "CSES Dynamic Programming"
+				},
+				{
+					"title": "Particles",
+					"subtitle": "Codeforces Round 884 (Div. 1+2)",
+					"url": "https://codeforces.com/contest/1844/problem/C"
+				},
+				{
+					"title": "Tenzing and Balls",
+					"subtitle": "CodeTON Round 5",
+					"url": "https://codeforces.com/contest/1842/problem/C"
+				}
+			]
+		}
+	},
+	{
 		"title": "Union Find",
 		"subtitle": "Week 2",
 		"body": "Welcome to our second session! Today we'll implement a couple of algorithms you were introduced to in the Data Structures and Algorithms courses. We suggest you to write more cpp-ish code and use the built-in data structures. Have fun! 🙃",
