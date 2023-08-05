@@ -1,294 +1,359 @@
 [
-	{
-		"title": "Dynamic Programming",
-		"subtitle": "Week 3",
-		"body": "Join this week's session to explore dynamic programming. This powerful technique breaks down complex problems into smaller subproblems and reuses their solutions to avoid duplicate computations. We encourage you learn and read about more advanced techniques from the excellent [Competitive Programmer's Handbook](https://cses.fi/book/book.pdf). Get ready for a challenge as we ramp up the difficulty level of the practice problems. Good luck! 🚀",
-		"problems": {
-			"availableAt": "2023-07-30T16:00Z",
-			"public": [
-				{
-					"title": "The Man who became a God",
-					"subtitle": "Codeforces Round 882 (Div. 2)",
-					"url": "https://codeforces.com/contest/1847/problem/A"
-				},
-				{
-					"title": "Coin Combinations",
-					"subtitle": "CSES Dynamic Programming",
-					"url": "https://cses.fi/problemset/task/1635"
-				},
-				{
-					"title": "Increasing Subsequence",
-					"subtitle": "CSES Dynamic Programming",
-					"url": "https://cses.fi/problemset/task/1145"
-				},
-				{
-					"title": "Alternating Deck (hard version)",
-					"subtitle": "Codeforces Round 850 (Div. 2)",
-					"url": "https://codeforces.com/contest/1786/problem/A2"
-				}
-			],
-			"extra": [
-				{
-					"title": "Edit Distance",
-					"url": "https://cses.fi/problemset/task/1639",
-					"subtitle": "CSES Dynamic Programming"
-				},
-				{
-					"title": "Particles",
-					"subtitle": "Codeforces Round 884 (Div. 1+2)",
-					"url": "https://codeforces.com/contest/1844/problem/C"
-				},
-				{
-					"title": "Tenzing and Balls",
-					"subtitle": "CodeTON Round 5",
-					"url": "https://codeforces.com/contest/1842/problem/C"
-				}
-			]
-		},
-		"resources": [
-			{
-				"title": "Dynamic Programming",
-				"subtitle": "Slides presented in class",
-				"url": "https://ity.sh/YtU3humPrT",
-				"type": "slides"
-			},
-			{
-				"title": "Competitive Programmer's Handbook",
-				"subtitle": "DP Chapter",
-				"url": "https://cses.fi/book/book.pdf#chapter.7",
-				"type": "material"
-			}
-		]
-	},
-	{
-		"title": "Union Find",
-		"subtitle": "Week 2",
-		"body": "Welcome to our second session! Today we'll implement a couple of algorithms you were introduced to in the Data Structures and Algorithms courses. We suggest you to write more cpp-ish code and use the built-in data structures. Have fun! 🙃",
-		"problems": {
-			"availableAt": "2023-07-23T16:00Z",
-			"public": [
-				{
-					"title": "Road Construction",
-					"subtitle": "CSES Graph Algorithms",
-					"url": "https://cses.fi/problemset/task/1676"
-				},
-				{
-					"title": "Sliding Median",
-					"subtitle": "CSES Sorting and Searching",
-					"url": "https://cses.fi/problemset/task/1076"
-				},
-				{
-					"title": "Nearest Smaller Values",
-					"subtitle": "CSES Sorting and Searching",
-					"url": "https://cses.fi/problemset/task/1645"
-				},
-				{
-					"title": "Ice Skating",
-					"subtitle": "Codeforces Round 134 (Div. 1)",
-					"url": "https://codeforces.com/contest/217/problem/A"
-				}
-			],
-			"extra": [
-				{
-					"title": "Parking",
-					"notTrackable": true,
-					"subtitle": "Codeforces ITMO Academy",
-					"url": "https://codeforces.com/edu/course/2/lesson/7/2/practice/contest/289391/problem/B"
-				},
-				{
-					"title": "Network Breakdown",
-					"subtitle": "CSES Additional Problems",
-					"url": "https://cses.fi/problemset/task/1677"
-				},
-				{
-					"title": "Josephus Queries",
-					"subtitle": "CSES Mathematics",
-					"url": "https://cses.fi/problemset/task/2164"
-				},
-				{
-					"title": "Replace With the Previous, Minimize",
-					"subtitle": "Codeforces Round 787 (Div. 3)",
-					"url": "https://codeforces.com/contest/1675/problem/E"
-				}
-			]
-		},
-		"resources": [
-			{
-				"title": "Union Find",
-				"subtitle": "Slides presented in class",
-				"url": "https://ity.sh/cZPLvhVxUpW",
-				"type": "slides"
-			},
-			{
-				"title": "Union Find",
-				"subtitle": "Article from CP-Algorithms",
-				"url": "https://cp-algorithms.com/data_structures/disjoint_set_union.html",
-				"type": "link"
-			},
-			{
-				"title": "Kruskal's MST Algorithm",
-				"subtitle": "Article from CP-Algorithms",
-				"url": "https://cp-algorithms.com/graph/mst_kruskal.html",
-				"type": "link"
-			},
-			{
-				"title": "Alon's DSU",
-				"subtitle": "A concise DSU implementation",
-				"url": "https://ity.sh/nC44fvvHGrq",
-				"type": "snippet"
-			}
-		]
-	},
-	{
-		"title": "Introduction",
-		"subtitle": "Week 1",
-		"body": "Welcome to our first session! 🎉 We're so glad you could make it. Today, we'll be introducing you to [Codeforces](https://codeforces.com/) and [CSES](https://cses.fi/), two amazing online judges for competitive programming that we'll be using throughout the semester. Don't worry if you're not familiar with C++ yet, we highly encourage you to give it a try and have fun while solving the problems. And don't forget to check out the *resources* tab below 👇, it's packed with helpful tools, learning materials, and code templates. Enjoy! 😊",
-		"problems": {
-			"availableAt": "2023-07-16T16:15Z",
-			"public": [
-				{
-					"title": "Missing Number",
-					"subtitle": "CSES Introductory Problems",
-					"url": "https://cses.fi/problemset/task/1083"
-				},
-				{
-					"title": "Searching Local Minimum",
-					"subtitle": "Codeforces Round 700 (Div. 1)",
-					"url": "https://codeforces.com/contest/1479/problem/A"
-				},
-				{
-					"title": "Distinct Numbers",
-					"subtitle": "CSES Sorting and Searching",
-					"url": "https://cses.fi/problemset/task/1621"
-				},
-				{
-					"title": "Insert Digit",
-					"subtitle": "Codeforces Round 863 (Div. 3)",
-					"url": "https://codeforces.com/contest/1811/problem/A"
-				}
-			],
-			"extra": [
-				{
-					"title": "Subarray Distinct Values",
-					"subtitle": "CSES Sorting and Searching",
-					"url": "https://cses.fi/problemset/task/2428"
-				},
-				{
-					"title": "Maximum Subarray Sum",
-					"subtitle": "CSES Sorting and Searching",
-					"url": "https://cses.fi/problemset/task/1643"
-				},
-				{
-					"title": "Circle of Monsters",
-					"subtitle": "Educational Codeforces Round 85",
-					"url": "https://codeforces.com/contest/1334/problem/C"
-				}
-			]
-		},
-		"resources": [
-			{
-				"title": "Introduction",
-				"subtitle": "Slides presented in class",
-				"url": "https://ity.sh/K4yhEDAayJZ",
-				"type": "slides"
-			},
-			{
-				"title": "USACO IDE",
-				"subtitle": "Online IDE built for CP",
-				"url": "https://ide.usaco.guide/",
-				"type": "link"
-			},
-			{
-				"title": "Judge0 IDE",
-				"subtitle": "Alternative, lightweight online IDE",
-				"url": "https://ide.judge0.com/",
-				"type": "link"
-			},
-			{
-				"title": "VSCode with C++",
-				"subtitle": "A guide for Windows users",
-				"url": "https://code.visualstudio.com/docs/cpp/config-mingw",
-				"type": "link"
-			},
-			{
-				"title": "Competitive Programmer's Handbook",
-				"url": "https://cses.fi/book/book.pdf",
-				"type": "material"
-			},
-			{
-				"title": "CP Algorithms",
-				"subtitle": "The Wikipedia of CP",
-				"url": "https://cp-algorithms.com/",
-				"type": "material"
-			},
-			{
-				"title": "USACO Guide",
-				"subtitle": "A well built online CP guide",
-				"url": "https://usaco.guide/bronze/",
-				"type": "material"
-			},
-			{
-				"title": "C++ Reference",
-				"subtitle": "Documentation of C++ and stdlibs",
-				"url": "https://en.cppreference.com/w/cpp",
-				"type": "material"
-			},
-			{
-				"title": "Bar's Template",
-				"type": "snippet",
-				"url": "https://ity.sh/oF6nQ6mVHGn"
-			},
-			{
-				"title": "Alon's Template",
-				"type": "snippet",
-				"url": "https://ity.sh/xAzJNUw7C8Q"
-			}
-		]
-	},
-	{
-		"title": "Welcome",
-		"subtitle": "Week 0",
-		"body": "Welcome to Competitive Programming! 👋 Our training sessions will officially begin next week, but until then, you are more than welcome to start solving some problems by yourself!",
-		"problems": {
-			"public": [
-				{
-					"title": "Repetitions",
-					"subtitle": "CSES Introductory Problems",
-					"url": "https://cses.fi/problemset/task/1069"
-				},
-				{
-					"title": "Berland Poker",
-					"subtitle": "Educational Codeforces Round 88 (Div. 2)",
-					"url": "https://codeforces.com/contest/1359/problem/A"
-				},
-				{
-					"title": "New Theatre Square",
-					"subtitle": "Educational Codeforces Round 88 (Div. 2)",
-					"url": "https://codeforces.com/contest/1359/problem/B"
-				},
-				{
-					"title": "Number of Apartments",
-					"subtitle": "Educational Codeforces Round 96 (Div. 2)",
-					"url": "https://codeforces.com/contest/1430/problem/A"
-				}
-			],
-			"extra": [
-				{
-					"title": "Yet Another Yet Another Task",
-					"subtitle": "Educational Codeforces Round 88 (Div. 2)",
-					"url": "https://codeforces.com/contest/1359/problem/D"
-				},
-				{
-					"title": "Shuffle",
-					"subtitle": "Educational Codeforces Round 120 (Div. 2)",
-					"url": "https://codeforces.com/contest/1622/problem/D"
-				},
-				{
-					"title": "Magic Ship",
-					"subtitle": "Educational Codeforces Round 60 (Div. 2)",
-					"url": "https://codeforces.com/contest/1117/problem/C"
-				}
-			]
-		}
-	}
+  {
+    "title": "Segment Trees",
+    "subtitle": "Week 4",
+    "body": "This week we will learn about segment trees! 🌴 The Segment tree is a powerful data structure that allows for efficient querying and updating of intervals in an array. We will also dive into the concept of lazy propagation, which optimizes certain types of updates in segment tree. It will be a more formal and heavy lecture than usual, so please come refreshed and ready to dive deep into the subject matter 🗯️",
+    "problems": {
+      "public": [
+        {
+          "title": "Range Update Queries",
+          "subtitle": "CSES Range Queries",
+          "url": "https://cses.fi/problemset/task/1651"
+        },
+        {
+          "title": "Enemy is weak",
+          "subtitle": "Codeforces Beta Round 57 (Div. 2)",
+          "url": "https://codeforces.com/contest/61/problem/E"
+        },
+        {
+          "title": "Distinct Characters Queries",
+          "subtitle": "Codeforces Round 590 (Div. 3)",
+          "url": "https://codeforces.com/contest/1234/problem/D"
+        },
+        {
+          "title": "Pizzeria Queries",
+          "subtitle": "CSES Range Queries",
+          "url": "https://cses.fi/problemset/task/2206"
+        }
+      ],
+      "extra": [
+        {
+          "title": "Range Updates and Sums",
+          "subtitle": "CSES Range Queries",
+          "url": "https://cses.fi/problemset/task/1735"
+        },
+        {
+          "title": "Subarray Sum Queries",
+          "subtitle": "CSES Range Queries",
+          "url": "https://cses.fi/problemset/task/1190"
+        },
+        {
+          "title": "Multiplication Table",
+          "subtitle": "CSES Additional Problems",
+          "url": "https://cses.fi/problemset/task/2422"
+        },
+        {
+          "title": "Polynomial Queries",
+          "subtitle": "CSES Range Queries",
+          "url": "https://cses.fi/problemset/task/1736"
+        }
+      ]
+    },
+    "resources": [
+      {
+        "title": "ITMO Academy Cource",
+        "subtitle": "Recorded lectures & practice problems",
+        "url": "https://codeforces.com/edu/course/2",
+        "type": "link"
+      },
+      {
+        "title": "CP Algorithms: Segment Trees",
+        "subtitle": "Written Article",
+        "url": "https://cp-algorithms.com/data_structures/segment_tree.html",
+        "type": "link"
+      }
+    ]
+  },
+  {
+    "title": "Dynamic Programming",
+    "subtitle": "Week 3",
+    "body": "Join this week's session to explore dynamic programming. This powerful technique breaks down complex problems into smaller subproblems and reuses their solutions to avoid duplicate computations. We encourage you learn and read about more advanced techniques from the excellent [Competitive Programmer's Handbook](https://cses.fi/book/book.pdf). Get ready for a challenge as we ramp up the difficulty level of the practice problems. Good luck! 🚀",
+    "problems": {
+      "availableAt": "2023-07-30T16:00Z",
+      "public": [
+        {
+          "title": "The Man who became a God",
+          "subtitle": "Codeforces Round 882 (Div. 2)",
+          "url": "https://codeforces.com/contest/1847/problem/A"
+        },
+        {
+          "title": "Coin Combinations",
+          "subtitle": "CSES Dynamic Programming",
+          "url": "https://cses.fi/problemset/task/1635"
+        },
+        {
+          "title": "Increasing Subsequence",
+          "subtitle": "CSES Dynamic Programming",
+          "url": "https://cses.fi/problemset/task/1145"
+        },
+        {
+          "title": "Alternating Deck (hard version)",
+          "subtitle": "Codeforces Round 850 (Div. 2)",
+          "url": "https://codeforces.com/contest/1786/problem/A2"
+        }
+      ],
+      "extra": [
+        {
+          "title": "Edit Distance",
+          "url": "https://cses.fi/problemset/task/1639",
+          "subtitle": "CSES Dynamic Programming"
+        },
+        {
+          "title": "Particles",
+          "subtitle": "Codeforces Round 884 (Div. 1+2)",
+          "url": "https://codeforces.com/contest/1844/problem/C"
+        },
+        {
+          "title": "Tenzing and Balls",
+          "subtitle": "CodeTON Round 5",
+          "url": "https://codeforces.com/contest/1842/problem/C"
+        }
+      ]
+    },
+    "resources": [
+      {
+        "title": "Dynamic Programming",
+        "subtitle": "Slides presented in class",
+        "url": "https://ity.sh/YtU3humPrT",
+        "type": "slides"
+      },
+      {
+        "title": "Competitive Programmer's Handbook",
+        "subtitle": "DP Chapter",
+        "url": "https://cses.fi/book/book.pdf#chapter.7",
+        "type": "material"
+      }
+    ]
+  },
+  {
+    "title": "Union Find",
+    "subtitle": "Week 2",
+    "body": "Welcome to our second session! Today we'll implement a couple of algorithms you were introduced to in the Data Structures and Algorithms courses. We suggest you to write more cpp-ish code and use the built-in data structures. Have fun! 🙃",
+    "problems": {
+      "availableAt": "2023-07-23T16:00Z",
+      "public": [
+        {
+          "title": "Road Construction",
+          "subtitle": "CSES Graph Algorithms",
+          "url": "https://cses.fi/problemset/task/1676"
+        },
+        {
+          "title": "Sliding Median",
+          "subtitle": "CSES Sorting and Searching",
+          "url": "https://cses.fi/problemset/task/1076"
+        },
+        {
+          "title": "Nearest Smaller Values",
+          "subtitle": "CSES Sorting and Searching",
+          "url": "https://cses.fi/problemset/task/1645"
+        },
+        {
+          "title": "Ice Skating",
+          "subtitle": "Codeforces Round 134 (Div. 1)",
+          "url": "https://codeforces.com/contest/217/problem/A"
+        }
+      ],
+      "extra": [
+        {
+          "title": "Parking",
+          "notTrackable": true,
+          "subtitle": "Codeforces ITMO Academy",
+          "url": "https://codeforces.com/edu/course/2/lesson/7/2/practice/contest/289391/problem/B"
+        },
+        {
+          "title": "Network Breakdown",
+          "subtitle": "CSES Additional Problems",
+          "url": "https://cses.fi/problemset/task/1677"
+        },
+        {
+          "title": "Josephus Queries",
+          "subtitle": "CSES Mathematics",
+          "url": "https://cses.fi/problemset/task/2164"
+        },
+        {
+          "title": "Replace With the Previous, Minimize",
+          "subtitle": "Codeforces Round 787 (Div. 3)",
+          "url": "https://codeforces.com/contest/1675/problem/E"
+        }
+      ]
+    },
+    "resources": [
+      {
+        "title": "Union Find",
+        "subtitle": "Slides presented in class",
+        "url": "https://ity.sh/cZPLvhVxUpW",
+        "type": "slides"
+      },
+      {
+        "title": "Union Find",
+        "subtitle": "Article from CP-Algorithms",
+        "url": "https://cp-algorithms.com/data_structures/disjoint_set_union.html",
+        "type": "link"
+      },
+      {
+        "title": "Kruskal's MST Algorithm",
+        "subtitle": "Article from CP-Algorithms",
+        "url": "https://cp-algorithms.com/graph/mst_kruskal.html",
+        "type": "link"
+      },
+      {
+        "title": "Alon's DSU",
+        "subtitle": "A concise DSU implementation",
+        "url": "https://ity.sh/nC44fvvHGrq",
+        "type": "snippet"
+      }
+    ]
+  },
+  {
+    "title": "Introduction",
+    "subtitle": "Week 1",
+    "body": "Welcome to our first session! 🎉 We're so glad you could make it. Today, we'll be introducing you to [Codeforces](https://codeforces.com/) and [CSES](https://cses.fi/), two amazing online judges for competitive programming that we'll be using throughout the semester. Don't worry if you're not familiar with C++ yet, we highly encourage you to give it a try and have fun while solving the problems. And don't forget to check out the *resources* tab below 👇, it's packed with helpful tools, learning materials, and code templates. Enjoy! 😊",
+    "problems": {
+      "availableAt": "2023-07-16T16:15Z",
+      "public": [
+        {
+          "title": "Missing Number",
+          "subtitle": "CSES Introductory Problems",
+          "url": "https://cses.fi/problemset/task/1083"
+        },
+        {
+          "title": "Searching Local Minimum",
+          "subtitle": "Codeforces Round 700 (Div. 1)",
+          "url": "https://codeforces.com/contest/1479/problem/A"
+        },
+        {
+          "title": "Distinct Numbers",
+          "subtitle": "CSES Sorting and Searching",
+          "url": "https://cses.fi/problemset/task/1621"
+        },
+        {
+          "title": "Insert Digit",
+          "subtitle": "Codeforces Round 863 (Div. 3)",
+          "url": "https://codeforces.com/contest/1811/problem/A"
+        }
+      ],
+      "extra": [
+        {
+          "title": "Subarray Distinct Values",
+          "subtitle": "CSES Sorting and Searching",
+          "url": "https://cses.fi/problemset/task/2428"
+        },
+        {
+          "title": "Maximum Subarray Sum",
+          "subtitle": "CSES Sorting and Searching",
+          "url": "https://cses.fi/problemset/task/1643"
+        },
+        {
+          "title": "Circle of Monsters",
+          "subtitle": "Educational Codeforces Round 85",
+          "url": "https://codeforces.com/contest/1334/problem/C"
+        }
+      ]
+    },
+    "resources": [
+      {
+        "title": "Introduction",
+        "subtitle": "Slides presented in class",
+        "url": "https://ity.sh/K4yhEDAayJZ",
+        "type": "slides"
+      },
+      {
+        "title": "USACO IDE",
+        "subtitle": "Online IDE built for CP",
+        "url": "https://ide.usaco.guide/",
+        "type": "link"
+      },
+      {
+        "title": "Judge0 IDE",
+        "subtitle": "Alternative, lightweight online IDE",
+        "url": "https://ide.judge0.com/",
+        "type": "link"
+      },
+      {
+        "title": "VSCode with C++",
+        "subtitle": "A guide for Windows users",
+        "url": "https://code.visualstudio.com/docs/cpp/config-mingw",
+        "type": "link"
+      },
+      {
+        "title": "Competitive Programmer's Handbook",
+        "url": "https://cses.fi/book/book.pdf",
+        "type": "material"
+      },
+      {
+        "title": "CP Algorithms",
+        "subtitle": "The Wikipedia of CP",
+        "url": "https://cp-algorithms.com/",
+        "type": "material"
+      },
+      {
+        "title": "USACO Guide",
+        "subtitle": "A well built online CP guide",
+        "url": "https://usaco.guide/bronze/",
+        "type": "material"
+      },
+      {
+        "title": "C++ Reference",
+        "subtitle": "Documentation of C++ and stdlibs",
+        "url": "https://en.cppreference.com/w/cpp",
+        "type": "material"
+      },
+      {
+        "title": "Bar's Template",
+        "type": "snippet",
+        "url": "https://ity.sh/oF6nQ6mVHGn"
+      },
+      {
+        "title": "Alon's Template",
+        "type": "snippet",
+        "url": "https://ity.sh/xAzJNUw7C8Q"
+      }
+    ]
+  },
+  {
+    "title": "Welcome",
+    "subtitle": "Week 0",
+    "body": "Welcome to Competitive Programming! 👋 Our training sessions will officially begin next week, but until then, you are more than welcome to start solving some problems by yourself!",
+    "problems": {
+      "public": [
+        {
+          "title": "Repetitions",
+          "subtitle": "CSES Introductory Problems",
+          "url": "https://cses.fi/problemset/task/1069"
+        },
+        {
+          "title": "Berland Poker",
+          "subtitle": "Educational Codeforces Round 88 (Div. 2)",
+          "url": "https://codeforces.com/contest/1359/problem/A"
+        },
+        {
+          "title": "New Theatre Square",
+          "subtitle": "Educational Codeforces Round 88 (Div. 2)",
+          "url": "https://codeforces.com/contest/1359/problem/B"
+        },
+        {
+          "title": "Number of Apartments",
+          "subtitle": "Educational Codeforces Round 96 (Div. 2)",
+          "url": "https://codeforces.com/contest/1430/problem/A"
+        }
+      ],
+      "extra": [
+        {
+          "title": "Yet Another Yet Another Task",
+          "subtitle": "Educational Codeforces Round 88 (Div. 2)",
+          "url": "https://codeforces.com/contest/1359/problem/D"
+        },
+        {
+          "title": "Shuffle",
+          "subtitle": "Educational Codeforces Round 120 (Div. 2)",
+          "url": "https://codeforces.com/contest/1622/problem/D"
+        },
+        {
+          "title": "Magic Ship",
+          "subtitle": "Educational Codeforces Round 60 (Div. 2)",
+          "url": "https://codeforces.com/contest/1117/problem/C"
+        }
+      ]
+    }
+  }
 ]
