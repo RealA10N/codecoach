@@ -62,6 +62,11 @@
         "subtitle": "Written Article",
         "url": "https://cp-algorithms.com/data_structures/segment_tree.html",
         "type": "link"
+      },
+      {
+        "title": "Alon's Minimum Segment Tree",
+        "url": "https://ity.sh/oaNgHxyR",
+        "type": "snippet"
       }
     ]
   },
