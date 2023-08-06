@@ -4,7 +4,7 @@
     "subtitle": "Week 4",
     "body": "This week we will learn about segment trees! 🌴 The Segment tree is a powerful data structure that allows for efficient querying and updating of intervals in an array. We will also dive into the concept of lazy propagation, which optimizes certain types of updates in segment tree. It will be a more formal and heavy lecture than usual, so please come refreshed and ready to dive deep into the subject matter 🗯️",
     "problems": {
-      "availableAt": "2023-08-06T16:00Z",
+      "availableAt": "2023-08-06T15:45Z",
       "public": [
         {
           "title": "Range Update Queries",
