@@ -1,36 +1,6 @@
-export interface Problem {
-	title: string;
-	subtitle?: string;
-	notTrackable?: boolean;
-	url: string;
-	solved?: boolean;
-}
+import { CCBaseModel } from "$lib/models/base"
+import { z } from "zod"
 
-export enum ResourceType {
-	snippet = 'snippet',
-	slides = 'slides',
-	link = 'link',
-	material = 'material'
-}
-
-export interface Resource {
-	title: string;
-	subtitle?: string;
-	type: ResourceType;
-	url: string;
-}
-
-export interface ProblemGroup {
-	public?: Problem[];
-	extra?: Problem[];
-	availableAt?: string;
-}
-
-export interface Session {
-	title: string;
-	subtitle?: string;
-	body?: string;
-	hidden?: boolean;
-	problems: ProblemGroup;
-	resources?: Resource[];
-}
+export const ProblemModel = CCBaseModel.extend({
+  problem_url: z.string().url(),
+})

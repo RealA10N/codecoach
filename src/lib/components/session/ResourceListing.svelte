@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Resource } from '$lib/models/Problem';
-	import { ResourceType } from '$lib/models/Problem';
+	import type { Resource } from '$lib/models/session';
+	import { ResourceType } from '$lib/models/session';
 	import Model from '$lib/components/model/Model.svelte';
 	import ExternalCodeSnippet from '../snippet/ExternalCodeSnippet.svelte';
 

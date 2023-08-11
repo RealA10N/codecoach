@@ -1,12 +1,10 @@
 <script lang="ts">
-	import type { Problem } from '$lib/models/Problem';
+	import type { Problem } from '$lib/models/session';
 	export let problem: Problem;
 
-	let className = problem.solved
-		? 'solved'
-		: problem.notTrackable
-		? 'not-trackable'
-		: 'not-applicable';
+	let className =
+		problem?.verdict ??
+		(problem.notTrackable ? 'not-trackable' : 'not-applicable');
 </script>
 
 <div
@@ -24,8 +22,12 @@
 </div>
 
 <style lang="postcss">
-	.solved {
+	.accepted {
 		@apply bg-green-300 hover:bg-green-400 dark:bg-green-900 dark:hover:bg-green-800;
+	}
+
+	.rejected {
+		@apply bg-red-200 hover:bg-red-300 dark:bg-red-900 dark:hover:bg-red-800;
 	}
 
 	.not-applicable {
