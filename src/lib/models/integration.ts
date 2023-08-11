@@ -4,10 +4,14 @@ import { z } from 'zod'
 export const PlatformModel = z.enum(['codeforces', 'cses'])
 export const Platform = PlatformModel.enum
 
+const BaseIntegrationModel = CCBaseModel.extend({
+  last_fetch: z.string().datetime().nullable()
+})
+
 export const CsesUserNumberModel = z.number().int().min(0).max(10_000_000)
 export type CsesUserNumber = z.infer<typeof CsesUserNumberModel>
 
-export const CsesIntegrationModel = CCBaseModel.extend({
+export const CsesIntegrationModel = BaseIntegrationModel.extend({
   platform: z.literal('cses'),
   user_number: CsesUserNumberModel,
 })
@@ -17,7 +21,7 @@ export type CsesIntegration = z.infer<typeof CsesIntegrationModel>
 export const CodeforcesHandleModel = z.string().min(3).max(30).trim().toLowerCase()
 export type CodeforcesHandle = z.infer<typeof CodeforcesHandleModel>
 
-export const CodeforcesIntegrationModel = CCBaseModel.extend({
+export const CodeforcesIntegrationModel = BaseIntegrationModel.extend({
   platform: z.literal('codeforces'),
   handle: CodeforcesHandleModel,
 })

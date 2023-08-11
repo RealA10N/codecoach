@@ -1,5 +1,5 @@
 import { env } from '$env/dynamic/private';
-import { type CodeforcesHandle, type CsesUserNumber, type CsesIntegration, type CodeforcesIntegration, Platform, type AnyIntegration, CodeforcesIntegrationModel, CsesIntegrationModel } from '$lib/models/integration';
+import { type CodeforcesHandle, type CsesUserNumber, type CsesIntegration, type CodeforcesIntegration, Platform, type AnyIntegration, CodeforcesIntegrationModel, CsesIntegrationModel, AnyIntegrationModel } from '$lib/models/integration';
 import { UserModel, type PasswordHash, type User, type UserEmail, type UserName, type UserPassword, UserPasswordModel } from '$lib/models/user';
 import { Container, CosmosClient, Database } from '@azure/cosmos';
 import bcrypt from 'bcrypt';
@@ -50,8 +50,8 @@ export async function initDatabase(): Promise<DatabaseContainers> {
 const hashPassword = async (password: string) =>
   (await bcrypt.hash(password, parseInt(env.SALTS))) as PasswordHash;
 
-export async function getUser(container: Container, id: string): Promise<User | null> {
-  const item = (await container.item(id, id).read()).resource
+export async function getUser(db: DatabaseContainers, id: string): Promise<User | null> {
+  const item = (await db.configs.item(id, id).read()).resource
   const result = UserModel.safeParse(item)
   if (result.success) return result.data
   return null
@@ -69,7 +69,7 @@ export async function getUserSubmissions(container: DatabaseContainers, user: Us
   if (!user) return null
 
   const querySpec = {
-    query: 'SELECT * FROM c WHERE ARRAY_CONTAINS(@integrationIds, c.integration.id, true)',
+    query: 'SELECT * FROM c WHERE ARRAY_CONTAINS(@integrationIds, c.integration.id)',
     parameters: [
       { name: "@integrationIds", value: user.integrations }
     ]
@@ -82,7 +82,7 @@ export async function getUserSubmissions(container: DatabaseContainers, user: Us
 }
 
 const checkIfRegistered = async (db: DatabaseContainers, id: string) =>
-  Boolean(await getUser(db.configs, id));
+  Boolean(await getUser(db, id));
 
 const updateUserConfig = async (db: DatabaseContainers, user: User) =>
   await db.configs.items?.upsert(user);
@@ -156,7 +156,7 @@ export async function tryToLogin(
   const passwordHash = userPassword?.password_hash ?? '';
   const result = await bcrypt.compare(password, passwordHash);
   return result
-    ? await getUser(db.configs, userId)
+    ? await getUser(db, userId)
     : null;
 }
 
@@ -165,4 +165,22 @@ export async function listAllUsers(
 ): Promise<User[]> {
   const { resources } = await db.configs.items.readAll<User>().fetchAll();
   return resources ?? [];
+}
+
+
+export async function getUserIntegrations(
+  db: DatabaseContainers,
+  user: User
+): Promise<AnyIntegration[] | null> {
+  const querySpec = {
+    query: 'SELECT * FROM c WHERE ARRAY_CONTAINS(@integrationIds, c.id)',
+    parameters: [
+      { name: "@integrationIds", value: user.integrations }
+    ]
+  }
+  const items = await db.integrations.items.query(querySpec).fetchAll()
+  const result = z.array(AnyIntegrationModel).safeParse(items.resources)
+  if (result.success) return result.data
+  console.warn("failed parsing integrations schema: ", result.error)
+  return null
 }

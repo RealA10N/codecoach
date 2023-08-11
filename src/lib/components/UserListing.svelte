@@ -9,12 +9,12 @@
 	bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700
 	fill-neutral-500 dark:fill-neutral-400"
 >
-	<span class="flex-1 flex items-center">
+	<a href="/users/{user.id}" class="flex-1 flex items-center no-underline">
 		<span>
 			{user.name}
 			<span class="text-xs opacity-70 invisible absolute sm:visible sm:relative"
 				>{user.email}</span
 			>
 		</span>
-	</span>
+	</a>
 </div>
