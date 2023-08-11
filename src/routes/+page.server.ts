@@ -16,5 +16,5 @@ export const load = async ({ locals }) => {
     userSubmissions
   )
 
-  return { sessions: servedSessions }
+  return { sessions: servedSessions, loggedInUser: locals.loggedInUser }
 }

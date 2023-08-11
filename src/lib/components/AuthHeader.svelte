@@ -9,7 +9,7 @@
 	export let user: UserConfig | null;
 </script>
 
-<header class="text-center mx-auto mt-8">
+<header class="text-center mx-auto">
 	{#if user}
 		<a rel="external" href="/logout" class="inline-block no-underline">
 			Welcome, {user.name}
