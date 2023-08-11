@@ -6,6 +6,8 @@
 
 <h1>Users</h1>
 
-{#each data.users as user}
-	<UserListing {user} />
-{/each}
+<div class="w-96">
+	{#each data.users as user}
+		<UserListing {user} />
+	{/each}
+</div>
