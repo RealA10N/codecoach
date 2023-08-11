@@ -50,7 +50,7 @@ export async function initDatabase(): Promise<DatabaseContainers> {
 const hashPassword = async (password: string) =>
   (await bcrypt.hash(password, parseInt(env.SALTS))) as PasswordHash;
 
-async function getUser(container: Container, id: string): Promise<User | null> {
+export async function getUser(container: Container, id: string): Promise<User | null> {
   const item = (await container.item(id, id).read()).resource
   const result = UserModel.safeParse(item)
   if (result.success) return result.data

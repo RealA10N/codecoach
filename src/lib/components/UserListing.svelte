@@ -8,7 +8,7 @@
 	import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 
 	export let user: User;
-	export let hasAdminPermissions: boolean;
+	export let hasAdminPermissions: boolean = false;
 </script>
 
 <div
