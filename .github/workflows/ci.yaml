@@ -38,7 +38,7 @@ jobs:
     needs: build
     environment:
       name: 'production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      url: https://code.alon.kr/
 
     steps:
       - name: Deploy to Azure Web App
