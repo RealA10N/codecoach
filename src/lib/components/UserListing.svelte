@@ -1,12 +1,13 @@
 <script lang="ts">
-	import type { UserConfig } from '$lib/models/user';
+	import type { User } from '$lib/models/user';
+	import { Platform } from '$lib/models/integration';
 	import Tooltip from '$lib/components/Tooltip.svelte';
 	import Codeforces from '$lib/components/Codeforces.svelte';
 	import Cses from '$lib/components/Cses.svelte';
 	import Fa from 'svelte-fa';
 	import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 
-	export let user: UserConfig;
+	export let user: User;
 	export let hasAdminPermissions: boolean;
 </script>
 
@@ -24,29 +25,29 @@
 		</span>
 	</span>
 
-	{#if user.codeforces}
-		<Tooltip text="View Codeforces profile">
-			<a
-				class="ml-2 hover:scale-[1.15]"
-				href="https://codeforces.com/profile/{user.codeforces}"
-				target="_blank"
-			>
-				<Codeforces />
-			</a>
-		</Tooltip>
-	{/if}
-
-	{#if user.cses}
-		<Tooltip text="View CSES profile">
-			<a
-				class="ml-2 hover:scale-[1.15]"
-				href="https://cses.fi/user/{user.cses}"
-				target="_blank"
-			>
-				<Cses />
-			</a>
-		</Tooltip>
-	{/if}
+	{#each user.integrations as integration}
+		{#if integration.platform == Platform.codeforces}
+			<Tooltip text="View Codeforces profile">
+				<a
+					class="ml-2 hover:scale-[1.15]"
+					href="https://codeforces.com/profile/{integration.handle}"
+					target="_blank"
+				>
+					<Codeforces />
+				</a>
+			</Tooltip>
+		{:else if integration.platform == Platform.cses}
+			<Tooltip text="View CSES profile">
+				<a
+					class="ml-2 hover:scale-[1.15]"
+					href="https://cses.fi/user/{integration.user_number}"
+					target="_blank"
+				>
+					<Cses />
+				</a>
+			</Tooltip>
+		{/if}
+	{/each}
 
 	{#if hasAdminPermissions}
 		<Tooltip text="Login as {user.name}">

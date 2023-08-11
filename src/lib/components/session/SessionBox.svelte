@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SvelteMarkdown from 'svelte-markdown';
 	import { Tabs, Tab, TabList, TabPanel } from '$lib/components/tabs/tabs';
-	import type { Session } from '$lib/models/Problem';
+	import type { Session } from '$lib/models/session';
 	import ProblemsBox from '$lib/components/session/ProblemsBox.svelte';
 	import ResourcesBox from './ResourcesBox.svelte';
 

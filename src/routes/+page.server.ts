@@ -1,20 +1,20 @@
 import { getUserSubmissions } from '$src/lib/services/db.server';
 import {
-	getAvailableSessions,
-	markSolvedProblemsInSession
+  getAvailableSessions,
+  markSolvedProblemsInSession
 } from '$src/lib/services/problems.server';
 
 export const load = async ({ locals }) => {
-	const userSubmissions = await getUserSubmissions(
-		locals.db,
-		locals.loggedInUser?.id ?? null
-	);
+  const userSubmissions = await getUserSubmissions(
+    locals.db,
+    locals.loggedInUser
+  )
 
-	const availableSessions = getAvailableSessions();
-	const servedSessions = markSolvedProblemsInSession(
-		availableSessions,
-		userSubmissions
-	);
+  const availableSessions = getAvailableSessions();
+  const servedSessions = markSolvedProblemsInSession(
+    availableSessions,
+    userSubmissions
+  )
 
-	return { sessions: servedSessions };
-};
+  return { sessions: servedSessions }
+}

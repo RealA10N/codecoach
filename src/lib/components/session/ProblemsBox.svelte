@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ProblemListing from '$src/lib/components/session/ProblemListing.svelte';
-	import type { Problem, ProblemGroup } from '$lib/models/problem';
+	import type { Problem, ProblemGroup } from '$lib/models/session';
+	import { SubmissionVerdict } from '$lib/models/submission';
 	import Fa from 'svelte-fa';
 	import {
 		faLock,
@@ -12,7 +13,7 @@
 	export let problems: ProblemGroup;
 
 	function isSolved(problem: Problem): boolean {
-		return problem?.solved ?? false;
+		return problem?.verdict == SubmissionVerdict.enum.accepted;
 	}
 
 	const countUnsolved = (problems: Problem[] | undefined) =>
