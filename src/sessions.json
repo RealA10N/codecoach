@@ -1,5 +1,47 @@
 [
   {
+    "title": "Mathematics",
+    "subtitle": "Week 5",
+    "body": "In our final week this summer, we will cover essential topics in mathematics that appear in many competitive programming problems. 📐 We will focus on understanding the greatest common divisor (GCD) and least common multiple (LCM), explore efficient exponentiation and modular arithmetic techniques, prime number identification, and prime factorization. Get ready to bring your A-game, as we inch closer to the grand finale! 🌟",
+    "problems": {
+      "availableAt": "2023-08-13T15:30Z",
+      "public": [
+        {
+          "title": "Permutations & Primes",
+          "subtitle": "Codeforces Round 884 (Div. 1 + 2)",
+          "url": "https://codeforces.com/contest/1844/problem/B"
+        },
+        {
+          "title": "Common Divisors",
+          "subtitle": "CSES Mathematics",
+          "url": "https://cses.fi/problemset/task/1081"
+        },
+        {
+          "title": "Close Tuples (hard version)",
+          "subtitle": "Codeforces Round 690 (Div. 3)",
+          "url": "https://codeforces.com/contest/1462/problem/E2"
+        },
+        {
+          "title": "Dreaming of Freedom",
+          "subtitle": "Codeforces Round 870 (Div. 2)",
+          "url": "https://codeforces.com/contest/1826/problem/C"
+        }
+      ],
+      "extra": [
+        {
+          "title": "Enlarge GCD",
+          "subtitle": "Codeforces Round 511 (Div. 1)",
+          "url": "https://codeforces.com/contest/1034/problem/A"
+        },
+        {
+          "title": "Counting Factorizations",
+          "subtitle": "Codeforces Round 856 (Div. 2)",
+          "url": "https://codeforces.com/contest/1794/problem/D"
+        }
+      ]
+    }
+  },
+  {
     "title": "Segment Trees",
     "subtitle": "Week 4",
     "body": "This week we will learn about segment trees! 🌴 The Segment tree is a powerful data structure that allows for efficient querying and updating of intervals in an array. We will also dive into the concept of lazy propagation, which optimizes certain types of updates in segment tree. It will be a more formal and heavy lecture than usual, so please come refreshed and ready to dive deep into the subject matter 🗯️",
