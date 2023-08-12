@@ -1,6 +1,6 @@
 [
   {
-    "title": "Mathematics",
+    "title": "Number Theory",
     "subtitle": "Week 5",
     "body": "In our final week this summer, we will cover essential topics in mathematics that appear in many competitive programming problems. 📐 We will focus on understanding the greatest common divisor (GCD) and least common multiple (LCM), explore efficient exponentiation and modular arithmetic techniques, prime number identification, and prime factorization. Get ready to bring your A-game, as we inch closer to the grand finale! 🌟",
     "problems": {
