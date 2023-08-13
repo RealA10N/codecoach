@@ -39,7 +39,41 @@
           "url": "https://codeforces.com/contest/1794/problem/D"
         }
       ]
-    }
+    },
+    "resources": [
+      {
+        "title": "Sieve Of Eratosthenes",
+        "subtitle": "CP Algorithms",
+        "url": "https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html",
+        "type": "link"
+      },
+      {
+        "title": "Linear Sieve",
+        "subtitle": "CP Algorithms",
+        "url": "https://cp-algorithms.com/algebra/prime-sieve-linear.html",
+        "type": "link"
+      },
+      {
+        "title": "Alon's Modular Arithmatic Template",
+        "url": "https://ity.sh/z7ooGqjHye",
+        "type": "snippet"
+      },
+      {
+        "title": "Alon's Sieve Till Root",
+        "url": "https://ity.sh/EHeW29xd3R",
+        "type": "snippet"
+      },
+      {
+        "title": "Alon's Root Factorization",
+        "url": "https://ity.sh/M7D7mYwddd",
+        "type": "snippet"
+      },
+      {
+        "title": "Alon's Linear Sieve",
+        "url": "https://ity.sh/bU8siximsj",
+        "type": "snippet"
+      }
+    ]
   },
   {
     "title": "Segment Trees",
