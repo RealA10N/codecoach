@@ -6,8 +6,9 @@
 	import ResourcesBox from './ResourcesBox.svelte';
 
 	export let session: Session;
-	let selectedId: string = 'problems';
-	$: showTabs = Boolean(session.resources);
+	let problemsAvaliable = Boolean(session.problems?.public?.length);
+	let selectedId: string = problemsAvaliable ? 'problems' : 'resources';
+	$: showTabs = problemsAvaliable && session.resources;
 </script>
 
 <div class="my-8">
@@ -32,11 +33,13 @@
 			</TabList>
 		{/if}
 
-		<TabPanel id="problems">
-			<ProblemsBox problems={session.problems} />
-		</TabPanel>
+		{#if session.problems}
+			<TabPanel id="problems">
+				<ProblemsBox problems={session.problems} />
+			</TabPanel>
+		{/if}
 
-		{#if showTabs}
+		{#if session.resources}
 			<TabPanel id="resources">
 				<ResourcesBox resources={session.resources} />
 			</TabPanel>

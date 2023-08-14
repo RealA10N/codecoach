@@ -15,7 +15,7 @@ export function getAvailableSessions(): Session[] {
 function maskAvailableSession(session: Session): Session {
   return {
     ...session,
-    problems: maskAvailableProblems(session.problems)
+    problems: session.problems ? maskAvailableProblems(session.problems) : undefined
   };
 }
 

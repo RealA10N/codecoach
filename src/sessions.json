@@ -1,5 +1,24 @@
 [
   {
+    "title": "2023 Summer Finale",
+    "subtitle": "Competition",
+    "body": "The time has come! 🕺🪩 Please carefully read the following rules and guidelines (the full list of guidelines was sent to you via WhatsApp):\n1. In addition to coding the solutions, you are encoredged to fill out [this form](https://forms.office.com/r/CfCaJZa4i6) during the contest, where you can share ideas for your solutions or the directions you considered but didn't succeed in implementing, due to time constraints or other reasons. We understand that many of you still face challenges in coding your solutions on the computer. We are mostly want to test your creativity and problem solving skills, and not your programming skills.\n1. Feel free to use any materials you've prepared in advance, any submissions you've made during the training sessions, and any code you have on your computer. Additionally, you can refer to [cppreference](http://www.cppreference.com) and [cp-algorithms](https://cp-algorithms.com). Refrain from googling specific algorithms or solutions, or using tools like ChatGPT or Copilot.",
+    "resources": [
+      {
+        "title": "Codeforces Contest",
+        "url": "https://codeforces.com/group/fi1EnnuLb3/contest/467590"
+      },
+      {
+        "title": "Solutions Form",
+        "url": "https://forms.office.com/r/CfCaJZa4i6"
+      },
+      {
+        "title": "Public Scoreboard",
+        "url": "https://codeforces.com/spectator/ranklist/0a797bd1c8567f51aba95143f61794e3"
+      }
+    ]
+  },
+  {
     "title": "Number Theory",
     "subtitle": "Week 5",
     "body": "In our final week this summer, we will cover essential topics in mathematics that appear in many competitive programming problems. 📐 We will focus on understanding the greatest common divisor (GCD) and least common multiple (LCM), explore efficient exponentiation and modular arithmetic techniques, prime number identification, and prime factorization. Get ready to bring your A-game, as we inch closer to the grand finale! 🌟",

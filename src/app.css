@@ -18,6 +18,15 @@
 		font-style: normal;
 	}
 
+	ol {
+	   @apply list-decimal list-inside;
+
+	}
+
+	li {
+		@apply my-2;
+	}
+
 	h1,
 	h2,
 	h3,

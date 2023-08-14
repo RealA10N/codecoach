@@ -33,6 +33,6 @@ export interface Session {
   subtitle?: string;
   body?: string;
   hidden?: boolean;
-  problems: ProblemGroup;
+  problems?: ProblemGroup;
   resources?: Resource[];
 }
