@@ -7,9 +7,10 @@
 </script>
 
 <span
-	class="fill-neutral-600 hover:fill-neutral-800
-		dark:fill-neutral-400 hover:dark:fill-neutral-200
-		hover:scale-110"
+	class="fill-neutral-600 dark:fill-neutral-400
+		hover:scale-110 hover:shadow-md px-2 py-1
+		border-neutral-200 dark:border-neutral-700 border-[1px] rounded-md
+		bg-neutral-500 dark:bg-neutral-800 bg-opacity-5"
 >
 	{#if integration.platform == Platform.codeforces}
 		<CodeforcesIntegrationLink {integration} />

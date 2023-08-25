@@ -8,12 +8,12 @@
 
 <h2 class="text-3xl">
 	{data.user?.name}
-
-	{#if data.integrations}
-		<span class="inline-flex gap-1">
-			{#each data.integrations as integration}
-				<AnyIntegrationLink {integration} />
-			{/each}
-		</span>
-	{/if}
 </h2>
+
+{#if data.integrations}
+	<span class="inline-flex gap-1">
+		{#each data.integrations as integration}
+			<AnyIntegrationLink {integration} />
+		{/each}
+	</span>
+{/if}

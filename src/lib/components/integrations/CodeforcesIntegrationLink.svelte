@@ -5,6 +5,11 @@
 	export let integration: CodeforcesIntegration;
 </script>
 
-<a href="https://codeforces.com/profile/{integration.handle}" target="_blank">
+<a
+	href="https://codeforces.com/profile/{integration.handle}"
+	target="_blank"
+	class="no-underline"
+>
 	<CodeforcesIcon />
+	{integration.handle}
 </a>
