@@ -11,5 +11,5 @@
 	class="no-underline"
 >
 	<CsesIcon />
-	{integration.user_number}
+	{integration.handle}
 </a>
