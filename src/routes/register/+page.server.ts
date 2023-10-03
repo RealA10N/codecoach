@@ -1,8 +1,8 @@
 import { fail, redirect } from '@sveltejs/kit';
-import { message, superValidate } from 'sveltekit-superforms/server';
+import { message, setError, superValidate } from 'sveltekit-superforms/server';
 import { registerNewUser } from '$lib/services/db.server';
 import { setLoggedInUser } from '$lib/services/tokens.server';
-import { registrationDetailsSchema } from '$lib/models/registration';
+import { registrationDetailsSchema } from '$src/lib/models/login';
 
 export const load = async () => {
 	const form = await superValidate(registrationDetailsSchema);
@@ -18,9 +18,8 @@ export const actions = {
 			const userConfig = await registerNewUser(locals.db, form.data);
 			setLoggedInUser(userConfig, cookies);
 		} catch (error) {
-			if (error instanceof Error)
-				return message(form, error.message, { status: 400 });
-			return message(form, 'Unknown Error', { status: 500 });
+			if (error instanceof Error) return setError(form, error.message);
+			return setError(form, 'Unknown Error');
 		}
 
 		throw redirect(303, '/');

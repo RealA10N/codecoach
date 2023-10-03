@@ -4,7 +4,7 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-	const { form, enhance, errors, message } = superForm(data.form);
+	const { form, enhance, errors } = superForm(data.form);
 </script>
 
 <div class="flex justify-center">
@@ -43,10 +43,12 @@
 			bind:errors={$errors.confirm}>Confirm Password</LabeledInput
 		>
 
-		{#if $message}
-			<p class="text-center text-red-400 dark:text-red-700 mt-4">
-				{$message}
-			</p>
+		{#if $errors._errors}
+			{#each $errors._errors as error}
+				<p class="text-center text-red-400 dark:text-red-700 mt-4">
+					{error}
+				</p>
+			{/each}
 		{/if}
 
 		<div class="mt-6 text-center">
