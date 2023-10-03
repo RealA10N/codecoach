@@ -4,7 +4,7 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-	const { form, enhance, errors } = superForm(data.form);
+	const { form, enhance, errors, constraints } = superForm(data.form);
 </script>
 
 <div class="flex justify-center">
@@ -12,33 +12,33 @@
 		<h1 class="text-center mb-6">Nice to meet! 😀</h1>
 
 		<LabeledInput
-			required
 			name="name"
 			type="text"
+			{...$constraints.name}
 			bind:value={$form.name}
 			bind:errors={$errors.name}>Name</LabeledInput
 		>
 
 		<LabeledInput
-			required
 			name="email"
 			type="email"
+			{...$constraints.email}
 			bind:value={$form.email}
 			bind:errors={$errors.email}>Email</LabeledInput
 		>
 
 		<LabeledInput
-			required
 			name="password"
 			type="password"
+			{...$constraints.password}
 			bind:value={$form.password}
 			bind:errors={$errors.password}>Password</LabeledInput
 		>
 
 		<LabeledInput
-			required
 			name="confirm"
 			type="password"
+			{...$constraints.confirm}
 			bind:value={$form.confirm}
 			bind:errors={$errors.confirm}>Confirm Password</LabeledInput
 		>
