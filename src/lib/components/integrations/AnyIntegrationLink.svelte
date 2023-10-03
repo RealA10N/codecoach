@@ -8,7 +8,7 @@
 
 <span
 	class="fill-neutral-600 dark:fill-neutral-400
-		hover:scale-110 hover:shadow-md px-2 py-1
+		hover:scale-105 hover:shadow-md px-2 py-1
 		border-neutral-200 dark:border-neutral-700 border-[1px] rounded-md
 		bg-neutral-500 dark:bg-neutral-800 bg-opacity-5"
 >
