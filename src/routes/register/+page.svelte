@@ -1,33 +1,51 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
+	import { superForm } from 'sveltekit-superforms/client';
 	import LabeledInput from '$lib/components/LabeledInput.svelte';
-	import Tooltip from '$src/lib/components/Tooltip.svelte';
-	import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
-	import type { ActionData } from './$types';
-	import Fa from 'svelte-fa';
+	import type { PageData } from './$types';
 
-	export let form: ActionData;
+	export let data: PageData;
+	const { form, enhance, errors, message } = superForm(data.form);
 </script>
 
 <div class="flex justify-center">
 	<form method="post" class="max-w-sm" use:enhance>
 		<h1 class="text-center mb-6">Nice to meet! 😀</h1>
 
-		<LabeledInput type="text" name="name">Name</LabeledInput>
-		<LabeledInput type="email" name="email">Email</LabeledInput>
-		<LabeledInput type="password" name="password">Password</LabeledInput>
-		<LabeledInput type="text" name="codeforces">Codeforces Handle</LabeledInput>
-		<LabeledInput type="text" name="cses"
-			>CSES User Number <span class="inline-block text-sm ml-1"
-				><Tooltip text="Go to your profile and copy from URL path"
-					><Fa icon={faCircleInfo} /></Tooltip
-				></span
-			></LabeledInput
+		<LabeledInput
+			required
+			name="name"
+			type="text"
+			bind:value={$form.name}
+			bind:errors={$errors.name}>Name</LabeledInput
 		>
 
-		{#if form?.message}
+		<LabeledInput
+			required
+			name="email"
+			type="email"
+			bind:value={$form.email}
+			bind:errors={$errors.email}>Email</LabeledInput
+		>
+
+		<LabeledInput
+			required
+			name="password"
+			type="password"
+			bind:value={$form.password}
+			bind:errors={$errors.password}>Password</LabeledInput
+		>
+
+		<LabeledInput
+			required
+			name="confirm"
+			type="password"
+			bind:value={$form.confirm}
+			bind:errors={$errors.confirm}>Confirm Password</LabeledInput
+		>
+
+		{#if $message}
 			<p class="text-center text-red-400 dark:text-red-700 mt-4">
-				{form.message}
+				{$message}
 			</p>
 		{/if}
 

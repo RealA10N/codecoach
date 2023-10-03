@@ -1,42 +1,27 @@
 import { fail, redirect } from '@sveltejs/kit';
-import type { Actions } from './$types';
+import { message, superValidate } from 'sveltekit-superforms/server';
+import { registerNewUser } from '$lib/services/db.server';
+import { setLoggedInUser } from '$lib/services/tokens.server';
+import { registrationDetailsSchema } from '$lib/models/registration';
 
-import isemail from 'isemail';
-import { registerNewUser } from '$src/lib/services/db.server';
-import { setLoggedInUser } from '$src/lib/services/tokens.server';
+export const load = async () => {
+	const form = await superValidate(registrationDetailsSchema);
+	return { form };
+};
 
 export const actions = {
-  default: async ({ cookies, request, locals }) => {
-    const data = await request.formData();
-    const email = data.get('email')?.toString() ?? '';
-    const password = data.get('password')?.toString() ?? '';
-    const name = data.get('name')?.toString() ?? '';
-    const cses = parseInt(data.get('cses')?.toString() ?? '');
-    const codeforces = data.get('codeforces')?.toString() ?? '';
+	default: async ({ locals, request, cookies }) => {
+		const form = await superValidate(request, registrationDetailsSchema);
+		if (!form.valid) return fail(400, { form });
 
-    // validate email
-    if (!email) return fail(400, { message: 'Email not provided' });
-    if (!isemail.validate(email, { errorLevel: false }))
-      return fail(400, { message: 'Invalid email address' });
+		try {
+			const userConfig = await registerNewUser(locals.db, form.data);
+			setLoggedInUser(userConfig, cookies);
+		} catch (error) {
+			if (error instanceof Error)
+				return message(form, 'Unknown Error', { status: 500 });
+		}
 
-    // validate password
-    if (!password) return fail(400, { message: 'Password not provided' });
-
-    try {
-      const userConfig = await registerNewUser(
-        locals.db,
-        name,
-        email,
-        codeforces,
-        cses,
-        password
-      );
-      setLoggedInUser(userConfig, cookies);
-    } catch (error) {
-      let message = 'Unknown Error';
-      if (error instanceof Error) message = error.message;
-      return fail(400, { message: message });
-    }
-    throw redirect(303, '/');
-  }
-} satisfies Actions;
+		throw redirect(303, '/');
+	}
+};
