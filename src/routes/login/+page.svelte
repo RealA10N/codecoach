@@ -1,22 +1,39 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
 	import LabeledInput from '$lib/components/LabeledInput.svelte';
-	import type { ActionData } from './$types';
+	import { superForm } from 'sveltekit-superforms/client';
+	import type { PageData } from './$types';
 
-	export let form: ActionData;
+	export let data: PageData;
+	const { form, enhance, errors, constraints } = superForm(data.form, {
+		taintedMessage: null
+	});
 </script>
 
 <div class="flex justify-center">
 	<form method="post" class="max-w-sm" use:enhance>
 		<h1 class="text-center mb-6">Welcome back! 👋</h1>
 
-		<LabeledInput type="email" name="email">Email</LabeledInput>
-		<LabeledInput type="password" name="password">Password</LabeledInput>
+		<LabeledInput
+			name="email"
+			type="email"
+			{...$constraints.email}
+			bind:value={$form.email}
+			bind:errors={$errors.email}>Email</LabeledInput
+		>
+		<LabeledInput
+			name="password"
+			type="password"
+			{...$constraints.password}
+			bind:value={$form.password}
+			bind:errors={$errors.password}>Password</LabeledInput
+		>
 
-		{#if form?.message}
-			<p class="text-center text-red-400 dark:text-red-700 mt-4">
-				{form.message}
-			</p>
+		{#if $errors._errors}
+			{#each $errors._errors as error}
+				<p class="text-center text-red-400 dark:text-red-700 mt-4">
+					{error}
+				</p>
+			{/each}
 		{/if}
 
 		<div class="mt-6 text-center">

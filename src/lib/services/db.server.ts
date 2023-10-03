@@ -1,21 +1,12 @@
 import { env } from '$env/dynamic/private';
 import {
-	type CodeforcesHandle,
-	type CsesUserNumber,
-	type CsesIntegration,
-	type CodeforcesIntegration,
-	Platform,
 	type AnyIntegration,
-	CodeforcesIntegrationModel,
-	CsesIntegrationModel,
 	AnyIntegrationModel
 } from '$lib/models/integration';
 import {
 	UserModel,
 	type PasswordHash,
 	type User,
-	type UserEmail,
-	type UserName,
 	type UserPassword,
 	UserPasswordModel
 } from '$lib/models/user';
@@ -23,12 +14,8 @@ import { Container, CosmosClient, Database } from '@azure/cosmos';
 import bcrypt from 'bcrypt';
 import { SubmissionModel, type Submission } from '$lib/models/submission';
 import { z } from 'zod';
-import {
-	emailToId,
-	getCsesIntegrationId,
-	getCodeforcesIntegrationId
-} from '$lib/services/hash.server';
-import type { registrationDetails } from '$lib/models/registration';
+import { emailToId } from '$lib/services/hash.server';
+import type { loginDetails, registrationDetails } from '$lib/models/login';
 
 type UserConfigContainer = Container;
 type UserPasswordContainer = Container;
@@ -159,13 +146,12 @@ export async function registerNewUser(
 
 export async function tryToLogin(
 	db: DatabaseContainers,
-	email: UserEmail,
-	password: string
-) {
-	const userId = emailToId(email);
+	details: loginDetails
+): Promise<User | null> {
+	const userId = emailToId(details.email);
 	const userPassword = await getUserPassword(db.passwords, userId);
 	const passwordHash = userPassword?.password_hash ?? '';
-	const result = await bcrypt.compare(password, passwordHash);
+	const result = await bcrypt.compare(details.password, passwordHash);
 	return result ? await getUser(db, userId) : null;
 }
 

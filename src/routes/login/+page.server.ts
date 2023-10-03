@@ -1,26 +1,23 @@
 import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 
-import isemail from 'isemail';
 import { tryToLogin } from '$src/lib/services/db.server';
 import { setLoggedInUser } from '$src/lib/services/tokens.server';
+import { setError, superValidate } from 'sveltekit-superforms/server';
+import { loginDetailsScheme } from '$src/lib/models/login';
+
+export const load = async () => {
+	const form = await superValidate(loginDetailsScheme);
+	return { form };
+};
 
 export const actions = {
 	default: async ({ cookies, request, locals }) => {
-		const data = await request.formData();
-		const email = data.get('email')?.toString() ?? '';
-		const password = data.get('password')?.toString() ?? '';
+		const form = await superValidate(request, loginDetailsScheme);
+		if (!form.valid) return fail(400, { form });
 
-		// validate email
-		if (!email) return fail(400, { message: 'Email not provided' });
-		if (!isemail.validate(email, { errorLevel: false }))
-			return fail(400, { message: 'Invalid email address' });
-
-		// validate password
-		if (!password) return fail(400, { message: 'Password not provided' });
-
-		const user = await tryToLogin(locals.db, email, password);
-		if (!user) return fail(400, { message: 'Incorrect email or password' });
+		const user = await tryToLogin(locals.db, form.data);
+		if (!user) return setError(form, 'Incorrect email or password');
 
 		setLoggedInUser(user, cookies);
 		throw redirect(303, '/');
