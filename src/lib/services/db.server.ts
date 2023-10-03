@@ -75,7 +75,7 @@ const hashPassword = async (password: string) =>
 
 export async function getUser(
 	db: DatabaseContainers,
-	email: string
+	id: string
 ): Promise<User | null> {
 	const item = (await db.configs.item(id, id).read()).resource;
 	const result = UserModel.safeParse(item);

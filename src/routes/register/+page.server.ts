@@ -19,7 +19,8 @@ export const actions = {
 			setLoggedInUser(userConfig, cookies);
 		} catch (error) {
 			if (error instanceof Error)
-				return message(form, 'Unknown Error', { status: 500 });
+				return message(form, error.message, { status: 400 });
+			return message(form, 'Unknown Error', { status: 500 });
 		}
 
 		throw redirect(303, '/');
