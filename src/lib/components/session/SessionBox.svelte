@@ -6,7 +6,7 @@
 	import ResourcesBox from './ResourcesBox.svelte';
 
 	export let session: Session;
-	let problemsAvaliable = Boolean(session.problems?.public?.length);
+	let problemsAvaliable = Boolean(session.problems);
 	let selectedId: string = problemsAvaliable ? 'problems' : 'resources';
 	$: showTabs = problemsAvaliable && session.resources;
 </script>
