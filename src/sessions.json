@@ -7,6 +7,18 @@
 			"availableAt": "2023-11-17T09:35Z",
 			"public": [
 				{
+					"title": "Shortest Routes I",
+					"subtitle": "CSES Graph Algorithms",
+					"url": "https://cses.fi/problemset/task/1671"
+				},
+				{
+					"title": "Message Route",
+					"subtitle": "CSES Graph Algorithms",
+					"url": "https://cses.fi/problemset/task/1667"
+				}
+			],
+			"extra": [
+				{
 					"title": "Bear and Friendship Condition",
 					"subtitle": "Codeforces VK Cup 2017",
 					"url": "https://codeforces.com/contest/771/problem/A"
@@ -20,9 +32,7 @@
 					"title": "Labyrinth",
 					"subtitle": "Codeforces Round 516 (Div. 1)",
 					"url": "https://codeforces.com/contest/1063/problem/B"
-				}
-			],
-			"extra": [
+				},
 				{
 					"title": "Breeding Bugs",
 					"subtitle": "AMC-ICPC GCPC 2022-2023",
