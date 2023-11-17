@@ -1,5 +1,37 @@
 [
 	{
+		"title": "Shortest Paths I",
+		"subtitle": "Winter 2024, Session 2",
+		"body": "In today's session we (finally) learn about graphs. In particular, we will learn how to find the shortest paths from a single source to any other vertex (SSSP), in an unweighted graph (using BFS) and a weighted graph (using Dijkstra's). Have fun! 😀",
+		"problems": {
+			"availableAt": "2023-11-17T09:35Z",
+			"public": [
+				{
+					"title": "Bear and Friendship Condition",
+					"subtitle": "Codeforces VK Cup 2017",
+					"url": "https://codeforces.com/contest/771/problem/A"
+				},
+				{
+					"title": "Flight Discount",
+					"subtitle": "CSES Graph Algorithms",
+					"url": "https://cses.fi/problemset/task/1195"
+				},
+				{
+					"title": "Labyrinth",
+					"subtitle": "Codeforces Round 516 (Div. 1)",
+					"url": "https://codeforces.com/contest/1063/problem/B"
+				}
+			],
+			"extra": [
+				{
+					"title": "Breeding Bugs",
+					"subtitle": "AMC-ICPC GCPC 2022-2023",
+					"url": "https://codeforces.com/gym/104059/problem/B"
+				}
+			]
+		}
+	},
+	{
 		"title": "SQRT Decomposition",
 		"subtitle": "Winter 2024, Session 1",
 		"body": "Welcome back. Today we will learn about SQRT decomposition and you will solve problems in teams of up to 3 students. In these difficult times, we hope that you are able to find some enjoyment in this session.",
