@@ -40,14 +40,14 @@
 	"type": "module",
 	"dependencies": {
 		"@azure/cosmos": "^3.17.3",
-		"@azure/identity": "^3.1.4",
+		"@azure/identity": "^4.4.1",
 		"@fontsource/comic-neue": "^5.0.5",
 		"@fontsource/inter": "^4.5.15",
 		"@fortawesome/free-solid-svg-icons": "^6.4.0",
 		"bcrypt": "^5.1.0",
 		"cheerio": "^1.0.0-rc.12",
 		"svelte-fa": "^3.0.3",
-		"svelte-markdown": "^0.2.3",
+		"svelte-markdown": "^0.4.1",
 		"svelte-prism": "^1.1.6"
 	}
 }
